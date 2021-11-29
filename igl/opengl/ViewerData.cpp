@@ -8,13 +8,15 @@
 
 #include "ViewerData.h"
 #include "ViewerCore.h"
-
 #include "../per_face_normals.h"
 #include "../material_colors.h"
 #include "../parula.h"
 #include "../per_vertex_normals.h"
 #include "igl/png/texture_from_png.h"
 #include <iostream>
+#include "c:\users\rotem\documents\cmake\engineforanimationcourse\tutorial\sandBox\sandBox.h"
+#include <igl/opengl/glfw/renderer.h>
+
 //#include "external/stb/igl_stb_image.h"
 
 IGL_INLINE igl::opengl::ViewerData::ViewerData()
@@ -52,7 +54,6 @@ IGL_INLINE void igl::opengl::ViewerData::set_mesh(
     const Eigen::MatrixXd& _V, const Eigen::MatrixXi& _F)
 {
   using namespace std;
-
   Eigen::MatrixXd V_temp;
 
   // If V only has two columns, pad with a column of zeros
@@ -74,7 +75,7 @@ IGL_INLINE void igl::opengl::ViewerData::set_mesh(
       Eigen::Vector3d(GOLD_AMBIENT[0], GOLD_AMBIENT[1], GOLD_AMBIENT[2]),
       Eigen::Vector3d(GOLD_DIFFUSE[0], GOLD_DIFFUSE[1], GOLD_DIFFUSE[2]),
       Eigen::Vector3d(GOLD_SPECULAR[0], GOLD_SPECULAR[1], GOLD_SPECULAR[2]));
-	image_texture("C:/Dev/EngineForAnimationCourse/tutorial/textures/snake1.png");
+	image_texture("C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/tutorial/textures/snake1.png");
 //    grid_texture();
   }
   else

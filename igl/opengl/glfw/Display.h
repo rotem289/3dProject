@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include <GLFW/glfw3.h>
+#include <C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\glfw\include\GLFW\glfw3.h>
 //#include "igl/opengl/glfw/renderer.h"
 #define EXIT_FAILURE 1
 struct GLFWwindow;

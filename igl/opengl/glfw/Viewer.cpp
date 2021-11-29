@@ -132,6 +132,7 @@ namespace glfw
       if (!igl::readOFF(mesh_file_name_string, V, F))
         return false;
       data().set_mesh(V,F);
+      
     }
     else if (extension == "obj" || extension =="OBJ")
     {

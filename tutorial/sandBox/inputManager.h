@@ -2,6 +2,7 @@
 #include "igl/opengl/glfw/Display.h"
 #include "igl/opengl/glfw/Renderer.h"
 #include "sandBox.h"
+
 //#include <igl/opengl/glfw/imgui/ImGuiMenu.h>
 //#include <igl/opengl/glfw/imgui/ImGuiHelpers.h>
 //#include <../imgui/imgui.h>
@@ -177,8 +178,12 @@ static void glfw_key_callback(GLFWwindow* window, int key, int scancode, int act
 		case GLFW_KEY_RIGHT:
 			rndr->TranslateCamera(Eigen::Vector3f(0.01f, 0, 0));
 			break;
+		case 'r':
+		case 'R':
+			scn->reset();
+			break;
 		case ' ':
-
+			scn->pre_draw();
 			break;
 		
 		default: 
