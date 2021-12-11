@@ -9,7 +9,7 @@ include(ExternalProject)
 ExternalProject_Add(glfw-download
                     TLS_VERIFY;OFF;GIT_CONFIG;advice.detachedHead=false;GIT_REPOSITORY;https://github.com/glfw/glfw.git;GIT_TAG;3.3
                     SOURCE_DIR          "C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/cmake/../external/glfw"
-                    BINARY_DIR          "C:/Users/rotem/Documents/cmake/EngineForAnimationCourse-old/build/glfw-build"
+                    BINARY_DIR          "C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/build/glfw-build"
                     CONFIGURE_COMMAND   ""
                     BUILD_COMMAND       ""
                     INSTALL_COMMAND     ""

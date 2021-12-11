@@ -5,7 +5,7 @@
 
 int main(int argc, char *argv[])
 {
-  Display *disp = new Display(1200, 800, "Wellcome");
+  Display *disp = new Display(1200, 800, "Welcome");
   Renderer renderer;
 
   SandBox viewer;
@@ -15,7 +15,6 @@ int main(int argc, char *argv[])
   
   Init(*disp, menu);
   renderer.init(&viewer,2,menu);
-  
   disp->SetRenderer(&renderer);
   disp->launch_rendering(true);
   delete menu;

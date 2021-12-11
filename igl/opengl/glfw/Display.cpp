@@ -142,9 +142,11 @@ bool Display::launch_rendering(bool loop)
 			glfwPollEvents();
 			frame_counter = 0;
 		}
-		if (!loop)
+				if (!loop)
 			return !glfwWindowShouldClose(window);
-
+		renderer->moveObject(renderer->direction);
+		if (renderer->direction != 4)
+			renderer->collision();
 #ifdef __APPLE__
 		static bool first_time_hack = true;
 		if (first_time_hack) {

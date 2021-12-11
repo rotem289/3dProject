@@ -16,6 +16,7 @@
 //#include <Eigen/Core>
 #include <memory>
 #include <vector>
+#include "igl/AABB.h"
 
 
 // Alec: This is a mesh class containing a variety of data types (normals,
@@ -85,6 +86,8 @@ public:
     const Eigen::Matrix<unsigned char,Eigen::Dynamic,Eigen::Dynamic>& G,
     const Eigen::Matrix<unsigned char,Eigen::Dynamic,Eigen::Dynamic>& B);
 
+ IGL_INLINE void setBoundingBox();
+
   // Set the texture associated with the mesh.
   //
   // Inputs:
@@ -151,6 +154,7 @@ public:
 
   Eigen::MatrixXd V; // Vertices of the current mesh (#V x 3)
   Eigen::MatrixXi F; // Faces of the mesh (#F x 3)
+  igl::AABB<Eigen::MatrixXd, 3> tree; //boundingbox
 
   // Per face attributes
   Eigen::MatrixXd F_normals; // One normal per face

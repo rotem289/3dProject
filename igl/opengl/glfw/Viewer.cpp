@@ -47,7 +47,7 @@
 static double highdpi = 1;
 static double scroll_x = 0;
 static double scroll_y = 0;
-
+Eigen::Vector3d updateTree;
 
 namespace igl
 {
@@ -55,6 +55,7 @@ namespace opengl
 {
 namespace glfw
 {
+
 
   void Viewer::Init(const std::string config)
   {
@@ -84,17 +85,18 @@ namespace glfw
     
 #ifndef IGL_VIEWER_VIEWER_QUIET
     const std::string usage(R"(igl::opengl::glfw::Viewer usage:
-  [drag]  Rotate scene
-  A,a     Toggle animation (tight draw loop)
-  F,f     Toggle face based
-  I,i     Toggle invert normals
-  L,l     Toggle wireframe
-  O,o     Toggle orthographic/perspective projection
-  T,t     Toggle filled faces
-  [,]     Toggle between cameras
-  1,2     Toggle between models
-  ;       Toggle vertex labels
-  :       Toggle face labels)"
+  [drag]    Rotate scene
+  A,a       Toggle animation (tight draw loop)
+  F,f       Toggle face based
+  I,i       Toggle invert normals
+  L,l       Toggle wireframe
+  O,o       Toggle orthographic/perspective projection
+  T,t       Toggle filled faces
+  [,]       Toggle between cameras
+  1,2       Toggle between models
+  ;         Toggle vertex labels
+  :         Toggle face labels
+  [^,v,<,>] Change movement direction)"
 );
     std::cout<<usage<<std::endl;
 #endif
@@ -132,6 +134,7 @@ namespace glfw
       if (!igl::readOFF(mesh_file_name_string, V, F))
         return false;
       data().set_mesh(V,F);
+      data().TranslateInSystem(GetRotation(), Eigen::Vector3d(moveVector/2, 0, 0));
       
     }
     else if (extension == "obj" || extension =="OBJ")
@@ -153,6 +156,7 @@ namespace glfw
       }
 
       data().set_mesh(V,F);
+      data().TranslateInSystem(GetRotation(), Eigen::Vector3d(moveVector/2, 0, 0));
       if (UV_V.rows() > 0)
       {
           data().set_uv(UV_V, UV_F);

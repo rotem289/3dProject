@@ -2,7 +2,7 @@
 setlocal
 "C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/cmake/../external/imgui
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse-old/build/imgui-build
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/build/imgui-build
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/imgui/imgui-download-prefix
 if %errorlevel% neq 0 goto :cmEnd
@@ -66,7 +66,7 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd
 ^C:\USERS\ROTEM\DOCUMENTS\CMAKE\ENGINEFORANIMATIONCOURSE\EXTERNAL\.CACHE\IMGUI\CMAKEFILES\7AD18B6C492B13F48651DE091B0F7247\IMGUI-DOWNLOAD-CONFIGURE.RULE
 setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse-old\build\imgui-build
+cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\build\imgui-build
 if %errorlevel% neq 0 goto :cmEnd
 C:
 if %errorlevel% neq 0 goto :cmEnd
@@ -82,7 +82,7 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd
 ^C:\USERS\ROTEM\DOCUMENTS\CMAKE\ENGINEFORANIMATIONCOURSE\EXTERNAL\.CACHE\IMGUI\CMAKEFILES\7AD18B6C492B13F48651DE091B0F7247\IMGUI-DOWNLOAD-BUILD.RULE
 setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse-old\build\imgui-build
+cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\build\imgui-build
 if %errorlevel% neq 0 goto :cmEnd
 C:
 if %errorlevel% neq 0 goto :cmEnd
@@ -98,7 +98,7 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd
 ^C:\USERS\ROTEM\DOCUMENTS\CMAKE\ENGINEFORANIMATIONCOURSE\EXTERNAL\.CACHE\IMGUI\CMAKEFILES\7AD18B6C492B13F48651DE091B0F7247\IMGUI-DOWNLOAD-INSTALL.RULE
 setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse-old\build\imgui-build
+cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\build\imgui-build
 if %errorlevel% neq 0 goto :cmEnd
 C:
 if %errorlevel% neq 0 goto :cmEnd
@@ -114,7 +114,7 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd
 ^C:\USERS\ROTEM\DOCUMENTS\CMAKE\ENGINEFORANIMATIONCOURSE\EXTERNAL\.CACHE\IMGUI\CMAKEFILES\7AD18B6C492B13F48651DE091B0F7247\IMGUI-DOWNLOAD-TEST.RULE
 setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse-old\build\imgui-build
+cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\build\imgui-build
 if %errorlevel% neq 0 goto :cmEnd
 C:
 if %errorlevel% neq 0 goto :cmEnd

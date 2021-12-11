@@ -138,7 +138,6 @@ IGL_INLINE bool igl::collapse_edge(
     }
     // Finally, "remove" this edge and its information
     kill_edge(e);
-
     return true;
 }
 

@@ -3,6 +3,7 @@
 #include <GLFW/glfw3.h>
 #include <igl/unproject_onto_mesh.h>
 #include "igl/look_at.h"
+#include "igl/opengl/Movable.h"
 //#include <Eigen/Dense>
 
 Renderer::Renderer() : selected_core_index(0),
@@ -117,6 +118,9 @@ IGL_INLINE void Renderer::init(igl::opengl::glfw::Viewer* viewer,int coresNum, i
 			core().toggle(scn->data_list[i].show_faces);
 			core().toggle(scn->data_list[i].show_lines);
 			core().toggle(scn->data_list[i].show_texture );
+			core().toggle(scn->data_list[i].show_overlay);
+			core().toggle(scn->data_list[i].show_overlay_depth);
+
 		}
 		//Eigen::Vector3d v = -scn->GetCameraPosition();
 		//TranslateCamera(v.cast<float>());
@@ -190,6 +194,30 @@ void Renderer::MouseProcessing(int button)
 
 		}
 	}
+}
+
+void Renderer::moveObject(int x)
+{
+	switch (direction) {
+	case 0: 
+		scn->data(0).TranslateInSystem(scn->GetRotation(), Eigen::Vector3d(0, 0.005, 0));
+		break;
+	
+	case 1:
+		scn->data(0).TranslateInSystem(scn->GetRotation(), Eigen::Vector3d(0, -0.005, 0));
+		break;
+	case 2:
+		scn->data(0).TranslateInSystem(scn->GetRotation(), Eigen::Vector3d(-0.005, 0, 0));
+		break;
+	case 3:
+		scn->data(0).TranslateInSystem(scn->GetRotation(), Eigen::Vector3d(0.005, 0, 0));
+		break;
+	case 4:
+		break;
+	default:
+		break;
+	}
+
 }
 
 void Renderer::TranslateCamera(Eigen::Vector3f amt)
@@ -335,6 +363,18 @@ IGL_INLINE void Renderer::resize(GLFWwindow* window,int w, int h)
 		return 0;
 	}
 
+	void Renderer::collision() {
+		if (colided) {
+			direction = 4;
+			//scn->data(1).set_mesh(scn->data(1).V, scn->data(1).F);
+			//scn->data(0).set_mesh(scn->data(0).V, scn->data(0).F);
+			finalBox(&scn->data(0).tree.m_box, 0);
+			finalBox(&scn->data(1).tree.m_box, 1);
+		}
+		if (boxCollide(&scn->data(0).tree, &scn->data(1).tree))
+			colided = true;
+	}
+
 	IGL_INLINE int Renderer::append_core(Eigen::Vector4f viewport, bool append_empty /*= false*/)
 	{
 		core_list.push_back(core()); // copies the previous active core and only changes the viewport
@@ -353,6 +393,170 @@ IGL_INLINE void Renderer::resize(GLFWwindow* window,int w, int h)
 		return core_list.back().id;
 	}
 
+	bool Renderer::boxCollide(igl::AABB<Eigen::MatrixXd, 3> *tree1, igl::AABB<Eigen::MatrixXd, 3> *tree2) {
+		//std::cout << "box collide";
+		//std::cout << "collided: " << colided;
+		//std::cout << " direction " << direction;
+		Eigen::Vector3d center1 = tree1->m_box.center();
+		//std::cout << "center1" << center1 << '\n';
+		Eigen::Vector3d center2 = tree2->m_box.center();
+		//std::cout << "center2" << center2 << '\n';
+
+		Eigen::Matrix3d A = scn->data(0).Tout *Eigen::Matrix3d::Identity();
+		Eigen::Matrix3d B = scn->data(1).Tout * Eigen::Matrix3d::Identity();
+		Eigen::Matrix3d C = (A.transpose() * B);
+		Eigen::Vector3d C0 = (scn->data(0).MakeTransScaled() * Eigen::Vector4d(center1[0], center1[1], center1[2], 1)).head(3);
+		Eigen::Vector3d C1 = (scn->data(1).MakeTransScaled() * Eigen::Vector4d(center2[0], center2[1], center2[2], 1)).head(3);
+		//std::cout << "maketranssclaed " << scn->data().MakeTransScaled() << '\n';
+		//std::cout << "maketranssclaed0 " << scn->data(0).MakeTransScaled() << '\n';
+		//std::cout << "maketranssclaed1 " << scn->data(1).MakeTransScaled() << '\n';
+
+		
+		//std::cout <<"C0" << C0<<'\n';
+		//std::cout << "C1" << C1 << '\n';
+		Eigen::Vector3d D = C1 - C0;
+		double ax = tree1->m_box.sizes().cast<double>()[0] / 2;
+		double ay = tree1->m_box.sizes().cast<double>()[1] / 2;
+		double az = tree1->m_box.sizes().cast<double>()[2] / 2;
+
+		double bx = tree2->m_box.sizes().cast<double>()[0] / 2;
+		double by = tree2->m_box.sizes().cast<double>()[1] / 2;
+		double bz = tree2->m_box.sizes().cast<double>()[2] / 2;
+
+		bool separate = overlap(A.col(0), A.col(1), A.col(2), ax, ay, az, B.col(0), B.col(1), B.col(2), bx, by, bz, C, D);
+		if (!separate) {
+			if (tree1->is_leaf()) {
+				if (tree2->is_leaf()) { //both leaves
+					finalBox(&tree1->m_box, 0);
+					finalBox(&tree2->m_box, 1);
+					return true;
+				}
+				else //only 1 is leaf
+					return boxCollide(tree1, tree2->m_right) || boxCollide(tree1, tree2->m_left);
+			}
+			else if (tree2->is_leaf()) //only 2 is leaf
+				return boxCollide(tree1->m_right, tree2) || boxCollide(tree1->m_left, tree2);
+			else //no leaves
+				return boxCollide(tree1->m_right, tree2->m_right) || boxCollide(tree1->m_right, tree2->m_left) ||
+				boxCollide(tree1->m_left, tree2->m_right) || boxCollide(tree1->m_left, tree2->m_left);
+		}
+		else
+			return false;
+	}
+
+	IGL_INLINE void Renderer::finalBox(Eigen::AlignedBox<double,3> *box, int objIndex)
+	{
+		// Find the bounding box
+		Eigen::Vector3d m = box->corner(box->BottomLeftFloor);
+		Eigen::Vector3d M = box->corner(box->TopRightCeil);
+
+		// Corners of the bounding box
+		Eigen::MatrixXd V_box(8, 3);
+		V_box <<
+			m(0), m(1), m(2),
+			M(0), m(1), m(2),
+			M(0), M(1), m(2),
+			m(0), M(1), m(2),
+			m(0), m(1), M(2),
+			M(0), m(1), M(2),
+			M(0), M(1), M(2),
+			m(0), M(1), M(2);
+
+		// Edges of the bounding box
+		Eigen::MatrixXi E_box(12, 2);
+		E_box <<
+			0, 1,
+			1, 2,
+			2, 3,
+			3, 0,
+			4, 5,
+			5, 6,
+			6, 7,
+			7, 4,
+			0, 4,
+			1, 5,
+			2, 6,
+			7, 3;
+
+		// Plot the corners of the bounding box as points
+		scn->data(objIndex).add_points(V_box, Eigen::RowVector3d(1, 0, 0));
+
+		// Plot the edges of the bounding box
+		for (unsigned i = 0; i < E_box.rows(); ++i)
+			scn->data(objIndex).add_edges
+			(
+				V_box.row(E_box(i, 0)),
+				V_box.row(E_box(i, 1)),
+				Eigen::RowVector3d(0, 0, 0)
+			);
+	}
+
+
+	bool Renderer::overlap(Eigen::RowVector3d A0, Eigen::RowVector3d A1, Eigen::RowVector3d A2, double a0, double a1,
+		double a2, Eigen::RowVector3d B0, Eigen::RowVector3d B1, Eigen::RowVector3d B2, double b0,
+		double b1, double b2, Eigen::Matrix3d C, Eigen::Vector3d D)
+	{
+		double c00 = C(0,0), c01 = C(0,1), c02 = C(0, 2), 
+			   c10 = C(1, 0), c11 = C(1, 1), c12 = C(1, 2), 
+			   c20 = C(2, 0), c21 = C(2, 1), c22 = C(2, 2);
+
+
+		/*std::cout << "A0" << A0 << '\n';
+		std::cout << "A1" << A1 << '\n';
+		std::cout << "A2" << A2 << '\n';
+		std::cout << "a0" << a0 << '\n';
+		std::cout << "a1" << a1 << '\n';
+		std::cout << "a2" << a2 << '\n';
+		std::cout << "B0" << B0 << '\n';
+		std::cout << "B1" << B1 << '\n';
+		std::cout << "B2" << B2 << '\n';
+		std::cout << "b0" << b0 << '\n';
+		std::cout << "b1" << b1 << '\n';
+		std::cout << "b2" << b2 << '\n';
+		std::cout << "C" << C << '\n';
+		std::cout << "D" << D << '\n';
+
+		std::cout << (a0 + b0 * abs(c00) + b1 * abs(c01) + b2 * abs(c02))<< "<" <<(abs(A0.dot(D))) << '\n';
+		std::cout << (a1 + b0 * abs(c10) + b1 * abs(c11) + b2 * abs(c12))<<"<"<<(abs(A1.dot(D))) << '\n';
+		std::cout << (a2 + b0 * abs(c20) + b1 * abs(c21) + b2 * abs(c22)) << "<" <<(abs(A2.dot(D))) << '\n';
+		std::cout << (b0 + a0 * abs(c00) + a1 * abs(c10) + a2 * abs(c20)) << "<" << (abs(B0.dot(D))) << '\n';
+		std::cout << (b1 + a0 * abs(c01) + a1 * abs(c11) + a2 * abs(c21)) << "<" << (abs(B1.dot(D))) << '\n';
+		std::cout << (b2 + a0 * abs(c02) + a1 * abs(c12) + a2 * abs(c22)) << "<" << (abs(B2.dot(D))) << '\n';
+
+		std::cout << (a1 * abs(c20) + a2 * abs(c10) + b1 * abs(c02) + b2 * abs(c01)) << "<" << (abs(c10 * A2.dot(D) - c20 * A1.dot(D)))<<'\n';
+		std::cout << (a1 * abs(c21) + a2 * abs(c11) + b0 * abs(c02) + b2 * abs(c00)) << "<" << (abs(c11 * A2.dot(D) - c21 * A1.dot(D))) << '\n';
+		std::cout << (a1 * abs(c22) + a2 * abs(c12) + b0 * abs(c01) + b1 * abs(c00)) << "<" << (abs(c12 * A2.dot(D) - c22 * A1.dot(D))) << '\n';
+		
+		std::cout << (a0 * abs(c20) + a2 * abs(c00) + b1 * abs(c12) + b2 * abs(c11)) << "<" << (abs(c20 * A0.dot(D) - c00 * A2.dot(D))) << '\n';
+		std::cout << (a0 * abs(c21) + a2 * abs(c01) + b0 * abs(c12) + b2 * abs(c10)) << "<" << (abs(c21 * A0.dot(D) - c01 * A2.dot(D))) << '\n';
+		std::cout << (a0 * abs(c22) + a2 * abs(c02) + b0 * abs(c11) + b1 * abs(c10)) << "<" << (abs(c22 * A0.dot(D) - c02 * A2.dot(D))) << '\n';
+
+			
+		std::cout << (a0 * abs(c10) + a1 * abs(c00) + b1 * abs(c22) + b2 * abs(c21)) << "<" << (abs(c00 * A1.dot(D) - c10 * A0.dot(D))) << '\n';
+		std::cout << (a0 * abs(c11) + a2 * abs(c01) + b0 * abs(c22) + b2 * abs(c20)) << "<" << (abs(c01 * A1.dot(D) - c11 * A0.dot(D))) << '\n';
+		std::cout << (a0 * abs(c12) + a2 * abs(c02) + b0 * abs(c21) + b1 * abs(c20)) << "<" << (abs(c02 * A1.dot(D) - c12 * A0.dot(D))) << '\n';
+		*/
+		return
+			a0 + b0 * abs(c00) + b1 * abs(c01) + b2 * abs(c02) < abs(A0.dot(D)) ||
+			a1 + b0 * abs(c10) + b1 * abs(c11) + b2 * abs(c12) < abs(A1.dot(D)) ||
+			a2 + b0 * abs(c20) + b1 * abs(c21) + b2 * abs(c22) < abs(A2.dot(D)) ||
+			b0 + a0 * abs(c00) + a1 * abs(c10) + a2 * abs(c20) < abs(B0.dot(D)) ||
+			b1 + a0 * abs(c01) + a1 * abs(c11) + a2 * abs(c21) < abs(B1.dot(D)) ||
+			b2 + a0 * abs(c02) + a1 * abs(c12) + a2 * abs(c22) < abs(B2.dot(D)) ||
+
+			a1 * abs(c20) + a2 * abs(c10) + b1 * abs(c02) + b2 * abs(c01) < abs(c10 * A2.dot(D) - c20 * A1.dot(D)) ||
+			a1 * abs(c21) + a2 * abs(c11) + b0 * abs(c02) + b2 * abs(c00) < abs(c11 * A2.dot(D) - c21 * A1.dot(D)) ||
+			a1 * abs(c22) + a2 * abs(c12) + b0 * abs(c01) + b1 * abs(c00) < abs(c12 * A2.dot(D) - c22 * A1.dot(D)) ||
+
+			a0 * abs(c20) + a2 * abs(c00) + b1 * abs(c12) + b2 * abs(c11) < abs(c20 * A0.dot(D) - c00 * A2.dot(D)) ||
+			a0 * abs(c21) + a2 * abs(c01) + b0 * abs(c12) + b2 * abs(c10) < abs(c21 * A0.dot(D) - c01 * A2.dot(D)) ||
+			a0 * abs(c22) + a2 * abs(c02) + b0 * abs(c11) + b1 * abs(c10) < abs(c22 * A0.dot(D) - c02 * A2.dot(D)) ||
+
+			a0 * abs(c10) + a1 * abs(c00) + b1 * abs(c22) + b2 * abs(c21) < abs(c00 * A1.dot(D) - c10 * A0.dot(D)) ||
+			a0 * abs(c11) + a2 * abs(c01) + b0 * abs(c22) + b2 * abs(c20) < abs(c01 * A1.dot(D) - c11 * A0.dot(D)) ||
+			a0 * abs(c12) + a2 * abs(c02) + b0 * abs(c21) + b1 * abs(c20) < abs(c02 * A1.dot(D) - c12 * A0.dot(D));
+
+	}
 	//IGL_INLINE void Viewer::select_hovered_core()
 	//{
 	//	int width_window, height_window = 800;

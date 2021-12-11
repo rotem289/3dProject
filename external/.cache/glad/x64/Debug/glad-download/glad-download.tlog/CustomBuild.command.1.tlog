@@ -2,7 +2,7 @@
 setlocal
 "C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/cmake/../external/glad
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse-old/build/glad-build
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/build/glad-build
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/glad/glad-download-prefix
 if %errorlevel% neq 0 goto :cmEnd
@@ -66,7 +66,7 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd
 ^C:\USERS\ROTEM\DOCUMENTS\CMAKE\ENGINEFORANIMATIONCOURSE\EXTERNAL\.CACHE\GLAD\CMAKEFILES\45330C0189F673B17010D8988E17493E\GLAD-DOWNLOAD-CONFIGURE.RULE
 setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse-old\build\glad-build
+cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\build\glad-build
 if %errorlevel% neq 0 goto :cmEnd
 C:
 if %errorlevel% neq 0 goto :cmEnd
@@ -82,7 +82,7 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd
 ^C:\USERS\ROTEM\DOCUMENTS\CMAKE\ENGINEFORANIMATIONCOURSE\EXTERNAL\.CACHE\GLAD\CMAKEFILES\45330C0189F673B17010D8988E17493E\GLAD-DOWNLOAD-BUILD.RULE
 setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse-old\build\glad-build
+cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\build\glad-build
 if %errorlevel% neq 0 goto :cmEnd
 C:
 if %errorlevel% neq 0 goto :cmEnd
@@ -98,7 +98,7 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd
 ^C:\USERS\ROTEM\DOCUMENTS\CMAKE\ENGINEFORANIMATIONCOURSE\EXTERNAL\.CACHE\GLAD\CMAKEFILES\45330C0189F673B17010D8988E17493E\GLAD-DOWNLOAD-INSTALL.RULE
 setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse-old\build\glad-build
+cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\build\glad-build
 if %errorlevel% neq 0 goto :cmEnd
 C:
 if %errorlevel% neq 0 goto :cmEnd
@@ -114,7 +114,7 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd
 ^C:\USERS\ROTEM\DOCUMENTS\CMAKE\ENGINEFORANIMATIONCOURSE\EXTERNAL\.CACHE\GLAD\CMAKEFILES\45330C0189F673B17010D8988E17493E\GLAD-DOWNLOAD-TEST.RULE
 setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse-old\build\glad-build
+cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\build\glad-build
 if %errorlevel% neq 0 goto :cmEnd
 C:
 if %errorlevel% neq 0 goto :cmEnd

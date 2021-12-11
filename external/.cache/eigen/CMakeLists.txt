@@ -9,7 +9,7 @@ include(ExternalProject)
 ExternalProject_Add(eigen-download
                     TLS_VERIFY;OFF;GIT_CONFIG;advice.detachedHead=false;GIT_REPOSITORY;https://github.com/eigenteam/eigen-git-mirror.git;GIT_TAG;3.2.10
                     SOURCE_DIR          "C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/cmake/../external/eigen"
-                    BINARY_DIR          "C:/Users/rotem/Documents/cmake/EngineForAnimationCourse-old/build/eigen-build"
+                    BINARY_DIR          "C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/build/eigen-build"
                     CONFIGURE_COMMAND   ""
                     BUILD_COMMAND       ""
                     INSTALL_COMMAND     ""

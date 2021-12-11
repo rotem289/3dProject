@@ -10,17 +10,24 @@
 struct GLFWwindow;
 
 
-class Renderer 
+class Renderer
 {
 public:
 	Renderer();
 	~Renderer();
-	IGL_INLINE void draw( GLFWwindow* window);
-	IGL_INLINE void init(igl::opengl::glfw::Viewer* scn,int coresNum, igl::opengl::glfw::imgui::ImGuiMenu *_menu);
-	
+	IGL_INLINE void draw(GLFWwindow* window);
+	IGL_INLINE void init(igl::opengl::glfw::Viewer* scn, int coresNum, igl::opengl::glfw::imgui::ImGuiMenu* _menu);
+	bool boxCollide(igl::AABB<Eigen::MatrixXd, 3>* tree1, igl::AABB<Eigen::MatrixXd, 3>* tree2);
+	bool Renderer::overlap(Eigen::RowVector3d A0, Eigen::RowVector3d A1, Eigen::RowVector3d A2, double a0, double a1,
+		double a2, Eigen::RowVector3d B0, Eigen::RowVector3d B1, Eigen::RowVector3d B2, double b0,
+		double b1, double b2, Eigen::Matrix3d C, Eigen::Vector3d D);
+	IGL_INLINE void finalBox(Eigen::AlignedBox<double, 3>* box, int objIndex);
+	void collision();
+	bool colided = false;
+
 	//IGL_INLINE bool key_pressed(unsigned int unicode_key, int modifiers);
 
-		// Returns **true** if action should be cancelled.
+		// Returns *true* if action should be cancelled.
 	std::function<bool(GLFWwindow* window)> callback_init;
 	std::function<bool(GLFWwindow* window)> callback_pre_draw;
 	std::function<bool(GLFWwindow* window)> callback_post_draw;
@@ -44,6 +51,7 @@ public:
 	void* callback_key_pressed_data;
 	void* callback_key_down_data;
 	void* callback_key_up_data;
+	int direction = 4;
 
 
 	////////////////////////////
@@ -84,14 +92,15 @@ public:
 	// IGL_INLINE void select_hovered_core();
 
 	// Callbacks
-	 double Picking(double x, double y);
-	 inline void Animate() { scn->Animate(); };
+	double Picking(double x, double y);
+	inline void Animate() { scn->Animate(); };
 	IGL_INLINE bool key_pressed(unsigned int unicode_key, int modifier);
-	IGL_INLINE void resize(GLFWwindow* window,int w, int h); // explicitly set window size
+	IGL_INLINE void resize(GLFWwindow* window, int w, int h); // explicitly set window size
 	IGL_INLINE void post_resize(GLFWwindow* window, int w, int h); // external resize due to user interaction
 	void SetScene(igl::opengl::glfw::Viewer* scn);
 	void UpdatePosition(double xpos, double ypos);
 	void MouseProcessing(int button);
+	void moveObject(int);
 	inline igl::opengl::glfw::Viewer* GetScene() {
 		return scn;
 	}
@@ -104,7 +113,7 @@ public:
 	void TranslateCamera(Eigen::Vector3f amt);
 	void RotateCamera(float amtX, float amtY);
 	inline bool IsPicked() { return scn->isPicked; }
-	
+
 private:
 	// Stores all the viewing options
 	std::vector<igl::opengl::ViewerCore> core_list;
@@ -119,4 +128,3 @@ private:
 	igl::opengl::glfw::imgui::ImGuiMenu* menu;
 	double z;
 };
-

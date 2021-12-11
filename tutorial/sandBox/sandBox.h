@@ -13,7 +13,7 @@ public:
 	void pre_draw();
 	void reset();
 	Eigen::Matrix4d calcError(int v);
-
+	std::vector<igl::AABB<Eigen::MatrixXd, 3>> trees; //boundingbox
 
 private:
 	// Prepare array-based edge data structures and priority queue
@@ -25,9 +25,6 @@ private:
 	Eigen::MatrixXd C;
 	int num_collapsed;
 
-	std::vector<igl::AABB<Eigen::MatrixXd, 3>*> trees;
-	std::vector<igl::AABB<Eigen::MatrixXd, 3>*> subtrees;
-	std::vector<Eigen::Vector3d> velocities;
 
 	void Animate();
 	//void SetQueue(Eigen::MatrixXd& V, Eigen::MatrixXi& F);

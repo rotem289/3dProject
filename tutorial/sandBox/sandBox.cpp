@@ -10,8 +10,8 @@
 #include "igl/opengl/ViewerData.h"
 #include <igl/find.h>
 #include "C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/glfw/include/GLFW/glfw3.h"
-
-
+#include "C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\igl\opengl\glfw\renderer.h"
+#include<igl/circulation.h>
 
 Eigen::VectorXi EMAP;
 Eigen::MatrixXi E, EF, EI;
@@ -40,25 +40,28 @@ void SandBox::Init(const std::string& config)
 	}
 	else
 	{
-
+		//double x = 0;
 		while (nameFileout >> item_name)
 		{
-			std::cout << "openning " << item_name << std::endl;
+			std::cout << "opening " << item_name << std::endl;
 			load_mesh_from_file(item_name);
+			//std::cout << data().V;
+			moveVector = 1;
 			parents.push_back(-1);
 			data().add_points(Eigen::RowVector3d(0, 0, 0), Eigen::RowVector3d(0, 0, 1));
 			data().show_overlay_depth = false;
 			data().point_size = 10;
 			data().line_width = 2;
+			reset();
+			data().tree.init(data().V, data().F);
+			data().setBoundingBox();
+			//std::cout << data().V;
 			data().set_visible(false, 1);
-
 		}
 		nameFileout.close();
 	}
-	MyTranslate(Eigen::Vector3d(0, 0, -1), true);
-
+	MyTranslate(Eigen::Vector3d(0,0,-1), true);
 	data().set_colors(Eigen::RowVector3d(0.9, 0.1, 0.1));
-
 }
 
 SandBox::~SandBox()
@@ -77,21 +80,30 @@ void SandBox::Animate()
 }
 
 Eigen::Matrix4d SandBox::calcError(int v) {
-	Eigen::Matrix4d K;
-	for (int f = 0; f < data().F.rows(); f++) {
-		if (data().F.row(f)(0) == v || data().F.row(f)(1) == v || data().F.row(f)(2) == v) {
-			Eigen::Vector3d normal = data().F_normals.row(f).normalized();
-			Eigen::Vector3d currV = data().V.row(v);
-			double d = abs((normal(0) * currV(0) + normal(1) * currV(1) + normal(2) * currV(2)));
-			Eigen::Vector4d p = Eigen::Vector4d(normal(0), normal(1), normal(2), d);
-			K += p * p.transpose();
-		}
+	Eigen::Matrix4d K=Eigen::Matrix4d::Zero();
+	std::vector<int> iter = igl::circulation(v, 0, EMAP, EF, EI);
+	for(int f=0; f<iter.size();f++){
+		Eigen::Vector3d normal = data().F_normals.row(iter[f]).normalized();
+		Eigen::Vector3d currV = data().V.row(E(v,0));
+		double d = (-1)*(normal(0) * currV(0) + normal(1) * currV(1) + normal(2) * currV(2));
+		Eigen::Vector4d p = Eigen::Vector4d(normal(0), normal(1), normal(2), d);
+		Eigen::Matrix4d ptag = p * p.transpose();
+		K += ptag;
+	}
+	std::vector<int> iter2 = igl::circulation(v, 1, EMAP, EF, EI);
+	for (int f = 0; f < iter2.size(); f++) {
+		Eigen::Vector3d normal = data().F_normals.row(iter2[f]).normalized();
+		Eigen::Vector3d currV = data().V.row(E(v,1));
+		double d = (-1) * (normal(0) * currV(0) + normal(1) * currV(1) + normal(2) * currV(2));
+		Eigen::Vector4d p = Eigen::Vector4d(normal(0), normal(1), normal(2), d);
+		Eigen::Matrix4d ptag = p * p.transpose();
+		K += ptag;
 	}
 	return K;
 }
 
 Eigen::RowVectorXd midpoint(const Eigen::MatrixXd& V, int v0, int v1) {
-	Eigen::Matrix4d EdgeMat;
+	Eigen::Matrix4d EdgeMat= Eigen::Matrix4d::Zero();
 	Eigen::Matrix4d sum = Verror[v0] + Verror[v1];
 	EdgeMat << sum(0, 0), sum(0, 1),sum(0, 2), sum(0, 3),
 		sum(1, 0), sum(1, 1), sum(1, 2), sum(1, 3),
@@ -99,8 +111,8 @@ Eigen::RowVectorXd midpoint(const Eigen::MatrixXd& V, int v0, int v1) {
 		0, 0, 0, 1;
 	if (EdgeMat.determinant() != 0) {
 		Eigen::Matrix4d inversed = EdgeMat.inverse();
-		Eigen::Vector4d res = inversed.row(3);
-		return inversed.row(3);
+		Eigen::Vector4d res = inversed*Eigen::Vector4d(0,0,0,1);
+		return Eigen::Vector3d(res[0], res[1], res[2]);
 	}
 	else {
 		Eigen::VectorXd res= (V.row(v0)+V.row(v1))/2;
@@ -108,7 +120,7 @@ Eigen::RowVectorXd midpoint(const Eigen::MatrixXd& V, int v0, int v1) {
 	}
 }
 
-double costrewrite(int v0, int v1, Eigen::Vector3d vTag) {
+double costrewrite(int v0, int v1, Eigen::VectorXd vTag) {
 	Eigen::Matrix4d sum = Verror[v0] + Verror[v1];
 	return (sum(0, 0) * (vTag(0) * vTag(0))
 		+ 2 * (sum(0, 1) * (vTag(0) * vTag(1)))
@@ -150,7 +162,7 @@ void SandBox::pre_draw()
 	if (!Q.empty())
 	{
 		bool something_collapsed = false;
-		const int max_iter = std::ceil((0.05) * Q.size());
+		const int max_iter = std::ceil((0.01) * Q.size());
 		for (int j = 0; j < max_iter; j++) {
 			if (!igl::collapse_edge(cost_and_midpoint,data().V,data().F,E,EMAP,EF,EI,Q,Qit,C,Verror))
 			{
@@ -196,7 +208,8 @@ void SandBox::reset() {
 	{
 		int v0 = E.row(e)(0);
 		int v1 = E.row(e)(1);
-		Eigen::RowVectorXd p = midpoint(data().V, v0, v1);
+		Eigen::RowVectorXd p(1, 3);
+		p = midpoint(data().V, v0, v1);
 		double cost = costrewrite(v0, v1, p);
 		cost_and_midpoint(e, OV, OF, E, EMAP, EF, EI, cost, p, Verror);
 		C.row(e) = p;
@@ -204,3 +217,4 @@ void SandBox::reset() {
 	}
 	num_collapsed = 0;
 };
+

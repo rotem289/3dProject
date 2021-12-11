@@ -9,7 +9,7 @@ include(ExternalProject)
 ExternalProject_Add(imgui-download
                     TLS_VERIFY;OFF;GIT_CONFIG;advice.detachedHead=false;GIT_REPOSITORY;https://github.com/ocornut/imgui.git;GIT_TAG;v1.69
                     SOURCE_DIR          "C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/cmake/../external/imgui"
-                    BINARY_DIR          "C:/Users/rotem/Documents/cmake/EngineForAnimationCourse-old/build/imgui-build"
+                    BINARY_DIR          "C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/build/imgui-build"
                     CONFIGURE_COMMAND   ""
                     BUILD_COMMAND       ""
                     INSTALL_COMMAND     ""
