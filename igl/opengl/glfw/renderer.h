@@ -51,7 +51,7 @@ public:
 	void* callback_key_pressed_data;
 	void* callback_key_down_data;
 	void* callback_key_up_data;
-	int direction = 4;
+	int direction = 3;
 
 
 	////////////////////////////

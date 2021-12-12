@@ -364,13 +364,6 @@ IGL_INLINE void Renderer::resize(GLFWwindow* window,int w, int h)
 	}
 
 	void Renderer::collision() {
-		if (colided) {
-			direction = 4;
-			//scn->data(1).set_mesh(scn->data(1).V, scn->data(1).F);
-			//scn->data(0).set_mesh(scn->data(0).V, scn->data(0).F);
-			finalBox(&scn->data(0).tree.m_box, 0);
-			finalBox(&scn->data(1).tree.m_box, 1);
-		}
 		if (boxCollide(&scn->data(0).tree, &scn->data(1).tree))
 			colided = true;
 	}
@@ -427,6 +420,7 @@ IGL_INLINE void Renderer::resize(GLFWwindow* window,int w, int h)
 		if (!separate) {
 			if (tree1->is_leaf()) {
 				if (tree2->is_leaf()) { //both leaves
+					direction = 4;
 					finalBox(&tree1->m_box, 0);
 					finalBox(&tree2->m_box, 1);
 					return true;
