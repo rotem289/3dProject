@@ -17,6 +17,12 @@ public:
 	~Renderer();
 	IGL_INLINE void draw(GLFWwindow* window);
 	IGL_INLINE void init(igl::opengl::glfw::Viewer* scn, int coresNum, igl::opengl::glfw::imgui::ImGuiMenu* _menu);
+	void IKswitch();
+	Eigen::Vector3d spherePosition();
+	void printRotation();
+	void printTip();
+	void printSphere();
+	IGL_INLINE void RotateYAxis(std::string direction);
 	bool boxCollide(igl::AABB<Eigen::MatrixXd, 3>* tree1, igl::AABB<Eigen::MatrixXd, 3>* tree2);
 	bool Renderer::overlap(Eigen::RowVector3d A0, Eigen::RowVector3d A1, Eigen::RowVector3d A2, double a0, double a1,
 		double a2, Eigen::RowVector3d B0, Eigen::RowVector3d B1, Eigen::RowVector3d B2, double b0,
@@ -113,6 +119,7 @@ public:
 	void TranslateCamera(Eigen::Vector3f amt);
 	void RotateCamera(float amtX, float amtY);
 	inline bool IsPicked() { return scn->isPicked; }
+	bool IKrun = false;
 
 private:
 	// Stores all the viewing options

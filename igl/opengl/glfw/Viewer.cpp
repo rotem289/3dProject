@@ -55,7 +55,7 @@ namespace opengl
 {
 namespace glfw
 {
-
+    int currCylinder = 0;
 
   void Viewer::Init(const std::string config)
   {
@@ -131,10 +131,12 @@ namespace glfw
     {
       Eigen::MatrixXd V;
       Eigen::MatrixXi F;
+      int index;
+      Eigen::Vector3d center;
       if (!igl::readOFF(mesh_file_name_string, V, F))
         return false;
       data().set_mesh(V,F);
-      data().TranslateInSystem(GetRotation(), Eigen::Vector3d(moveVector/2, 0, 0));
+      //data().TranslateInSystem(GetRotation(), Eigen::Vector3d(moveVector/2, 0, 0));
       
     }
     else if (extension == "obj" || extension =="OBJ")
@@ -146,6 +148,9 @@ namespace glfw
       Eigen::MatrixXi UV_F;
       Eigen::MatrixXd V;
       Eigen::MatrixXi F;
+      int index;
+      Eigen::Vector3d center;
+
 
       if (!(
             igl::readOBJ(
@@ -154,9 +159,31 @@ namespace glfw
       {
         return false;
       }
+      if (mesh_file_name_string.substr(mesh_file_name_string.length()-13, mesh_file_name_string.length()-1)=="ycylinder.obj") { //make better
+          index = currCylinder;
+          std::cout << index;
+          data().Tout.translate(Eigen::Vector3d(0, 1.6, 0));
+          Eigen::Vector3d min = V.colwise().minCoeff();
+          Eigen::Vector3d max = V.colwise().maxCoeff();
+          center = Eigen::Vector3d((min(0) + max(0)) / 2, min(1), (min(2) + max(2)) / 2);
+          data().Tin.translate(-center);
+          data().Tout.pretranslate(center);
+          if (currCylinder == 0) {
+              //parents.push_back(0);
+              data().Tout.translate(Eigen::Vector3d(0, -1.6, 0));
+          }
+          //else
+              //parents.push_back(index - 1);
+          currCylinder++;
+          drawAxis(min, max);
+      }
+      else {
+          data().MyTranslate(Eigen::Vector3d(5, 0, 0), true);
+          index = -1;
+      }
 
       data().set_mesh(V,F);
-      data().TranslateInSystem(GetRotation(), Eigen::Vector3d(moveVector/2, 0, 0));
+      //data().TranslateInSystem(GetRotation(), Eigen::Vector3d(moveVector/2, 0, 0));
       if (UV_V.rows() > 0)
       {
           data().set_uv(UV_V, UV_F);
@@ -180,13 +207,45 @@ namespace glfw
     {
       data().grid_texture();
     }
-    
 
     //for (unsigned int i = 0; i<plugins.size(); ++i)
     //  if (plugins[i]->post_load())
     //    return true;
 
     return true;
+  }
+
+  Eigen::Matrix4d Viewer::makeParentsTransd(int indexOfLink) {
+      Eigen::Matrix4d mat = Eigen::Matrix4d::Identity();
+      if (indexOfLink == 0)
+          return mat;
+      for (int i = 1; i < indexOfLink; i++) {
+          mat = mat * data(i).MakeTransd();
+      }
+      return mat;
+
+  }
+
+  void Viewer::drawAxis(Eigen::Vector3d min, Eigen::Vector3d max) {
+      Eigen::MatrixXd V_box(6, 3);
+      V_box <<
+          (min(0) + max(0)) / 2, max(1), min(2) - 1.6,
+          max(0) - 1.6, max(1), (min(2) + max(2)) / 2,
+          min(0) + 1.6, max(1), (min(2) + max(2)) / 2,
+          (min(0) + max(0)) / 2, max(1), max(2) + 1.6,
+          (max(0) + min(0)) / 2, min(0), (max(2) + min(2)) / 2,
+          0, 2.5, 0;
+
+
+      Eigen::MatrixXi E_box(3, 2);
+      E_box <<
+          0, 3,
+          1, 2,
+          4, 5;
+
+      data().add_edges(V_box.row(E_box(0, 0)), V_box.row(E_box(0, 1)), Eigen::RowVector3d(1, 0, 0));
+      data().add_edges(V_box.row(E_box(1, 0)), V_box.row(E_box(1, 1)), Eigen::RowVector3d(0, 1, 0));
+      data().add_edges(V_box.row(E_box(2, 0)), V_box.row(E_box(2, 1)), Eigen::RowVector3d(0, 0, 1));
   }
 
   IGL_INLINE bool Viewer::save_mesh_to_file(

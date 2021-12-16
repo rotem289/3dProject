@@ -155,6 +155,7 @@ public:
   Eigen::MatrixXd V; // Vertices of the current mesh (#V x 3)
   Eigen::MatrixXi F; // Faces of the mesh (#F x 3)
   igl::AABB<Eigen::MatrixXd, 3> tree; //boundingbox
+  int index;
 
   // Per face attributes
   Eigen::MatrixXd F_normals; // One normal per face

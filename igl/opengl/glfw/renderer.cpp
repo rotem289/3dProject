@@ -1,3 +1,9 @@
+#include "RENDERER.H"
+#include "RENDERER.H"
+#include "RENDERER.H"
+#include "RENDERER.H"
+#include "RENDERER.H"
+#include "RENDERER.H"
 #include "igl/opengl/glfw/renderer.h"
 
 #include <GLFW/glfw3.h>
@@ -139,6 +145,69 @@ IGL_INLINE void Renderer::init(igl::opengl::glfw::Viewer* viewer,int coresNum, i
 		};
 	}
 }
+void Renderer::IKswitch() {
+	if ((spherePosition() - scn->data(1).Tout.translation().matrix()).norm() <= 6.4) {
+		IKrun = !IKrun;
+	}
+	else
+		std::cout << "too far! \n";
+}
+
+Eigen::Vector3d Renderer::spherePosition() {
+	return scn->data(0).Tout.translation().matrix();
+}
+
+void Renderer::printRotation() {
+	if (!scn->isPicked && scn->selected_data_index > 0) {
+		std::cout << "Rotation matrix: " << (scn->makeParentsTransd(scn->selected_data_index) * scn->data().MakeTransd()).block<3, 3>(0, 0) << '\n';
+	}
+	else
+		std::cout << "Rotation matrix of scene: " << (scn->MakeTransd()).block<3, 3>(0, 0) << '\n';
+}
+
+void Renderer::printTip() {
+	Eigen::Vector3d res = Eigen::Vector3d::Zero();
+	for (int i = 1; i < scn->parents.size(); i++) {
+		Eigen::Matrix3d rot = Eigen::Matrix3d::Identity();
+		for (int j = 1; j < i + 1; j++) {
+			rot = rot * (scn->data(i).Tout.rotation().matrix());
+		}
+		res = res + (rot * Eigen::Vector3d(0, 1, 0));
+	}
+	std::cout<<"The Arm Tip: "<< (res * 1.6).transpose()<<'\n';
+}
+
+void Renderer::printSphere() {
+	std::cout << "The sphere is at: " << spherePosition().transpose() << '\n';
+}
+
+IGL_INLINE void Renderer::RotateYAxis(std::string direction) {
+	if (scn->isPicked) {
+		//scn rotation
+		if (direction.compare("right")) { scn->MyRotate(Eigen::Vector3d(0, 1, 0), 2); }
+		else { scn->MyRotate(Eigen::Vector3d(0, 1, 0), -2); }
+	}
+	else {
+		Eigen::Matrix3d rotate = scn->data().Tout.rotation().matrix();
+		if (direction.compare("right")) {
+			scn->data().Tout.rotate(rotate.inverse());
+			scn->data().MyRotate(Eigen::Vector3d(0, 1, 0), 2);
+			scn->data().Tout.rotate(rotate);
+
+
+		}
+		else {
+			scn->data().Tout.rotate(rotate.inverse());
+			scn->data().MyRotate(Eigen::Vector3d(0, 1, 0), -2);
+			scn->data().Tout.rotate(rotate);
+
+		}
+
+	}
+
+}
+
+
 
 void Renderer::UpdatePosition(double xpos, double ypos)
 {

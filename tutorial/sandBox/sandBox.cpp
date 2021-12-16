@@ -47,19 +47,26 @@ void SandBox::Init(const std::string& config)
 			load_mesh_from_file(item_name);
 			//std::cout << data().V;
 			moveVector = 1;
-			parents.push_back(-1);
+			if (data().index == 1)
+				parents.push_back(1);
+			else
+				if (data().index == 0)
+					parents.push_back(0);
+				else
+					parents.push_back(data().index-1);
 			data().add_points(Eigen::RowVector3d(0, 0, 0), Eigen::RowVector3d(0, 0, 1));
 			data().show_overlay_depth = false;
 			data().point_size = 10;
 			data().line_width = 2;
 			reset();
 			data().tree.init(data().V, data().F);
-			data().setBoundingBox();
+			//data().setBoundingBox();
 			//std::cout << data().V;
 			data().set_visible(false, 1);
 		}
 		nameFileout.close();
 	}
+	spherePosition = data(0).Tout.translation().matrix();
 	MyTranslate(Eigen::Vector3d(0,0,-1), true);
 	data().set_colors(Eigen::RowVector3d(0.9, 0.1, 0.1));
 }
@@ -78,6 +85,7 @@ void SandBox::Animate()
 
 	}
 }
+
 
 Eigen::Matrix4d SandBox::calcError(int v) {
 	Eigen::Matrix4d K=Eigen::Matrix4d::Zero();

@@ -143,7 +143,7 @@ static void glfw_key_callback(GLFWwindow* window, int key, int scancode, int act
 		case 'T':
 		case 't':
 		{
-			rndr->core().toggle(scn->data().show_faces);
+			rndr->printTip();
 			break;
 		}
 		case '[':
@@ -167,27 +167,37 @@ static void glfw_key_callback(GLFWwindow* window, int key, int scancode, int act
 			rndr->TranslateCamera(Eigen::Vector3f(0, 0, -0.03f));
 			break;
 		case GLFW_KEY_UP:
-			rndr->direction = 0;
+			//rndr->direction = 0;
 			break;
 		case GLFW_KEY_DOWN:
-			rndr->direction = 1;
+			//rndr->direction = 1;
 			break;
 		case GLFW_KEY_LEFT:
-			rndr->direction = 2;
+			//rndr->direction = 2;
+			rndr->RotateYAxis("left");
 			break;
 		case GLFW_KEY_RIGHT:
-			rndr->direction = 3;
+			//rndr->direction = 3;
+			rndr->RotateYAxis("right");
 			break;
 		case 'r':
 		case 'R':
 			scn->reset();
 			break;
 		case ' ':
-			scn->pre_draw();
+			rndr->IKswitch();
 			break;
 		case 'm':
 		case 'M':
 			rndr->direction = 0;
+		case 'p':
+		case 'P':
+			rndr->printRotation();
+			break;
+		case 'd':
+		case 'D':
+			rndr->printSphere();
+			break;
 		default: 
 			Eigen::Vector3f shift;
 			float scale;

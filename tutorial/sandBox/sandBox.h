@@ -14,7 +14,7 @@ public:
 	void reset();
 	Eigen::Matrix4d calcError(int v);
 	std::vector<igl::AABB<Eigen::MatrixXd, 3>> trees; //boundingbox
-
+	Eigen::Vector3d spherePosition;
 private:
 	// Prepare array-based edge data structures and priority queue
 	Eigen::VectorXi EMAP;
@@ -27,6 +27,7 @@ private:
 
 
 	void Animate();
+	void drawAxis(Eigen::Vector3d min, Eigen::Vector3d max);
 	//void SetQueue(Eigen::MatrixXd& V, Eigen::MatrixXi& F);
 
 

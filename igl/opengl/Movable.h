@@ -19,6 +19,7 @@ public:
 	void RotateInSystem(Eigen::Vector3d rotAxix, double);
 	void MyRotate(const Eigen::Matrix3d &rot);
 	void MyScale(Eigen::Vector3d amt);
+	Eigen::Matrix4d MakeParentsTransd(int indx);
 
 	Eigen::Matrix3d GetRotation() const{ return Tout.rotation().matrix(); }
 

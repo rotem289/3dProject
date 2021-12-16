@@ -53,6 +53,8 @@ namespace glfw
 	virtual Eigen::Vector3d GetCameraForward() { return Eigen::Vector3d(0, 0, -1); }
 	virtual Eigen::Vector3d GetCameraUp() { return Eigen::Vector3d(0, 1, 0); }
     double moveVector=-1;
+    void drawAxis(Eigen::Vector3d min, Eigen::Vector3d max);
+    Eigen::Matrix4d makeParentsTransd(int indexOfLink);
 
 	//IGL_INLINE void init_plugins();
     //IGL_INLINE void shutdown_plugins();
