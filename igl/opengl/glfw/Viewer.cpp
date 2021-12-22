@@ -169,7 +169,7 @@ namespace glfw
           data().Tin.translate(-center);
           data().Tout.pretranslate(center);
           if (index == 0) {
-              data().Tout.translate(Eigen::Vector3d(0, 0, -1.6));
+              data().Tout.translate(Eigen::Vector3d(0, 0, -0.8));
               parents.push_back(0);
           }
           else {
@@ -220,11 +220,11 @@ namespace glfw
 
 
 
-  Eigen::Matrix4d Viewer::makeParentsTransd(int indexOfLink) {
+  Eigen::Matrix4d Viewer::makeParentsTransd(int index) {
       Eigen::Matrix4d mat = Eigen::Matrix4d::Identity();
-      if (indexOfLink == 0)
-          return mat;
-      for (int i = 1; i < indexOfLink; i++) {
+      if (index == 0)
+          return data(0).MakeTransd();
+      for (int i = 1; i < index; i++) {
           mat = mat * data(i).MakeTransd();
       }
       return mat;
@@ -232,11 +232,11 @@ namespace glfw
   }
 
   Eigen::Matrix3d Viewer::parentsRotationMatrices(int index) {
-      Eigen::Matrix3d mat = Eigen::Matrix3d::Identity();
+      Eigen::Matrix3d mat = data(1).Tout.rotation().matrix();
       if (index == 0)
-          return mat;
+          return Eigen::Matrix3d::Identity();
       else {
-          for (int i = 1; i < index; i++) {
+          for (int i = 1; i <= index; i++) {
               mat = mat * data(i).Tout.rotation().matrix();
           }
           return mat;
@@ -244,35 +244,27 @@ namespace glfw
   }
 
   IGL_INLINE Eigen::Vector3d Viewer::getTip(int index) {
-      Eigen::Vector3d ret = Eigen::Vector3d::Zero();
-      for (int j = 1; j < index; j++) {
-          ret = ret + getRotationVector(j);
-      }
-      std::cout << ret;
-      return ret * 1.6;
-  }
-
-  IGL_INLINE Eigen::Vector3d Viewer::getTip() {
-      Eigen::Vector3d ret = Eigen::Vector3d::Zero();
-      for (int i = 1; i < parents.size(); i++) {
+      Eigen::Vector3d ret = data(1).Tout.translation().matrix();
+      for (int i = 1; i < index+1; i++) {
           Eigen::Matrix3d rot = Eigen::Matrix3d::Identity();
-          for (int j = 1; j < i; j++) {
-              rot = rot * (data(i).Tout.rotation().matrix());
+          for (int j = 1; j < i + 1; j++) {
+              rot = rot * (data(j).Tout.rotation().matrix());
           }
           ret = ret + (rot * Eigen::Vector3d(0, 0, 1));
       }
       return ret * 1.6;
   }
 
-  Eigen::Vector3d Viewer::getRotationVector(int index) {
-      Eigen::Vector3d vecZ = Eigen::Vector3d(0, 0, 1);
-      Eigen::Matrix3d mat = Eigen::Matrix3d::Identity();
-      for (int i = 1; i < index + 1; i++) {
-          mat = mat * data(i).Tout.rotation().matrix();
-
+  IGL_INLINE Eigen::Vector3d Viewer::getTip() {
+      Eigen::Vector3d ret = data(1).Tout.translation().matrix();
+      for (int i = 1; i < parents.size(); i++) {
+          Eigen::Matrix3d rot = Eigen::Matrix3d::Identity();
+          for (int j = 1; j < i+1; j++) {
+              rot = rot * (data(j).Tout.rotation().matrix());
+          }
+          ret = ret + (rot * Eigen::Vector3d(0, 0, 1));
       }
-      return mat * vecZ;
-
+      return ret * 1.6;
   }
 
 
@@ -466,18 +458,9 @@ namespace glfw
 
   Eigen::Matrix4d Viewer::CalcParentsTrans(int indx) 
   {
-	  /*Eigen::Matrix4d prevTrans = Eigen::Matrix4d::Identity();
-      //bool cylinder = false;
-	  for (int i = indx; i >= 0; i = parents[i])
-	  {
-		  //std::cout << "parent matrix:\n" << scn->data_list[scn->parents[i]].MakeTrans() << std::endl;
-		  prevTrans = data_list[parents[i]].MakeTransd() * prevTrans;
-          std::cout << indx;
-          //cylinder = true;
-	  }
-	  return prevTrans;*/
+
       if (indx == 0) {
-          return data(0).MakeTransd();
+          return  Eigen::Matrix4d::Identity();
       }
       else {
           Eigen::Matrix4d mat = Eigen::Matrix4d::Identity();

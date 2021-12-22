@@ -77,6 +77,7 @@ static void glfw_mouse_scroll(GLFWwindow* window, double x, double y)
 		rndr->GetScene()->data().MyScale(Eigen::Vector3d(1 + y * 0.01,1 + y * 0.01,1+y*0.01));
 	else
 		rndr->GetScene()->MyTranslate(Eigen::Vector3d(0,0, - y * 0.03),true);
+
 }
 
 void glfw_window_size(GLFWwindow* window, int width, int height)

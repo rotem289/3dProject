@@ -122,6 +122,8 @@ public:
 	}
 	void TranslateCamera(Eigen::Vector3f amt);
 	void RotateCamera(float amtX, float amtY);
+	void RotateCamera();
+	void IKcheck();
 	inline bool IsPicked() { return scn->isPicked; }
 	bool IKrun = false;
 

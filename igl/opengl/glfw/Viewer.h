@@ -60,6 +60,8 @@ namespace glfw
 
     IGL_INLINE Eigen::Vector3d getTip();
 
+    Eigen::Vector3d getTipRecursive(int index);
+
     Eigen::Vector3d getRotationVector(int index);
 
 	//IGL_INLINE void init_plugins();
