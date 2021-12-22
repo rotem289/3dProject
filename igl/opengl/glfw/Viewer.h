@@ -56,12 +56,19 @@ namespace glfw
     void drawAxis(Eigen::Vector3d min, Eigen::Vector3d max);
     Eigen::Matrix4d makeParentsTransd(int indexOfLink);
 
+    IGL_INLINE Eigen::Vector3d getTip(int index);
+
+    IGL_INLINE Eigen::Vector3d getTip();
+
+    Eigen::Vector3d getRotationVector(int index);
+
 	//IGL_INLINE void init_plugins();
     //IGL_INLINE void shutdown_plugins();
     Viewer();
     virtual ~Viewer();
     // Mesh IO
     IGL_INLINE bool load_mesh_from_file(const std::string & mesh_file_name);
+    Eigen::Matrix3d parentsRotationMatrices(int index);
     IGL_INLINE bool save_mesh_to_file(const std::string & mesh_file_name);
    
     // Scene IO

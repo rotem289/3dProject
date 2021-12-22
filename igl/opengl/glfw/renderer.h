@@ -18,11 +18,15 @@ public:
 	IGL_INLINE void draw(GLFWwindow* window);
 	IGL_INLINE void init(igl::opengl::glfw::Viewer* scn, int coresNum, igl::opengl::glfw::imgui::ImGuiMenu* _menu);
 	void IKswitch();
+	Eigen::Vector3d bottom();
 	Eigen::Vector3d spherePosition();
 	void printRotation();
 	void printTip();
 	void printSphere();
 	IGL_INLINE void RotateYAxis(std::string direction);
+	IGL_INLINE void RotateXAxis(std::string direction);
+	IGL_INLINE void IKCyclic();
+	double distanceFromSphere();
 	bool boxCollide(igl::AABB<Eigen::MatrixXd, 3>* tree1, igl::AABB<Eigen::MatrixXd, 3>* tree2);
 	bool Renderer::overlap(Eigen::RowVector3d A0, Eigen::RowVector3d A1, Eigen::RowVector3d A2, double a0, double a1,
 		double a2, Eigen::RowVector3d B0, Eigen::RowVector3d B1, Eigen::RowVector3d B2, double b0,

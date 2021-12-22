@@ -4,6 +4,10 @@
 #include "RENDERER.H"
 #include "RENDERER.H"
 #include "RENDERER.H"
+#include "RENDERER.H"
+#include "RENDERER.H"
+#include "RENDERER.H"
+#include "RENDERER.H"
 #include "igl/opengl/glfw/renderer.h"
 
 #include <GLFW/glfw3.h>
@@ -146,16 +150,21 @@ IGL_INLINE void Renderer::init(igl::opengl::glfw::Viewer* viewer,int coresNum, i
 	}
 }
 void Renderer::IKswitch() {
-	if ((spherePosition() - scn->data(1).Tout.translation().matrix()).norm() <= 6.4) {
+	if ((spherePosition() - bottom()).norm() <= (scn->data_list.size()-1)*1.6) {
 		IKrun = !IKrun;
 	}
 	else
 		std::cout << "too far! \n";
 }
 
+Eigen::Vector3d Renderer::bottom() {
+	return scn->data(1).Tout.translation().matrix();
+}
+
 Eigen::Vector3d Renderer::spherePosition() {
 	return scn->data(0).Tout.translation().matrix();
 }
+
 
 void Renderer::printRotation() {
 	if (!scn->isPicked && scn->selected_data_index > 0) {
@@ -166,15 +175,7 @@ void Renderer::printRotation() {
 }
 
 void Renderer::printTip() {
-	Eigen::Vector3d res = Eigen::Vector3d::Zero();
-	for (int i = 1; i < scn->parents.size(); i++) {
-		Eigen::Matrix3d rot = Eigen::Matrix3d::Identity();
-		for (int j = 1; j < i + 1; j++) {
-			rot = rot * (scn->data(i).Tout.rotation().matrix());
-		}
-		res = res + (rot * Eigen::Vector3d(0, 1, 0));
-	}
-	std::cout<<"The Arm Tip: "<< (res * 1.6).transpose()<<'\n';
+	std::cout<<"The Arm Tip: "<< (scn->getTip()).transpose()<<'\n';
 }
 
 void Renderer::printSphere() {
@@ -184,21 +185,20 @@ void Renderer::printSphere() {
 IGL_INLINE void Renderer::RotateYAxis(std::string direction) {
 	if (scn->isPicked) {
 		//scn rotation
-		if (direction.compare("right")) { scn->MyRotate(Eigen::Vector3d(0, 1, 0), 2); }
-		else { scn->MyRotate(Eigen::Vector3d(0, 1, 0), -2); }
+		if (direction.compare("right")) { scn->MyRotate(Eigen::Vector3d(0, 1, 0), 0.1); }
+		else { scn->MyRotate(Eigen::Vector3d(0, 1, 0), -0.1); }
 	}
 	else {
 		Eigen::Matrix3d rotate = scn->data().Tout.rotation().matrix();
 		if (direction.compare("right")) {
 			scn->data().Tout.rotate(rotate.inverse());
-			scn->data().MyRotate(Eigen::Vector3d(0, 1, 0), 2);
+			scn->data().MyRotate(Eigen::Vector3d(0, 1, 0), 0.1);
 			scn->data().Tout.rotate(rotate);
-
 
 		}
 		else {
 			scn->data().Tout.rotate(rotate.inverse());
-			scn->data().MyRotate(Eigen::Vector3d(0, 1, 0), -2);
+			scn->data().MyRotate(Eigen::Vector3d(0, 1, 0), -0.1);
 			scn->data().Tout.rotate(rotate);
 
 		}
@@ -207,7 +207,72 @@ IGL_INLINE void Renderer::RotateYAxis(std::string direction) {
 
 }
 
+IGL_INLINE void Renderer::RotateXAxis(std::string direction) {
+	if (scn->isPicked) {
+		//scn rotation
+		if (direction.compare("up")) { scn->MyRotate(Eigen::Vector3d(1, 0, 0), 20 / 180.0f); }
+		else { scn->MyRotate(Eigen::Vector3d(1, 0, 0), -20 / 180.0f); }
+	}
+	else {
+		Eigen::Matrix3d rotate = scn->data().Tout.rotation().matrix();
+		if (direction.compare("up")) {
+			scn->data().MyRotate(Eigen::Vector3d(1, 0, 0), 0.1);
+		}
+		else {
+			scn->data().MyRotate(Eigen::Vector3d(1, 0, 0), -0.1);
+		}
 
+	}
+
+}
+
+IGL_INLINE void Renderer::IKCyclic() {
+	Eigen::Vector3d D = spherePosition();
+	std::cout << "sphere pos " << D.transpose() << '\n';
+	std::cout << "curr tip " << scn->getTip().transpose()<<'\n';
+	std::cout << "data list size " << scn->data_list.size() << '\n';
+	std::cout << "distance " << distanceFromSphere() << '\n';
+	std::cout <<"bottom "<< bottom().transpose()<<'\n';
+	for (int i = (scn->data_list.size()-1); IKrun && distanceFromSphere() > 0.1 && i > 0; i--)
+	{
+		Eigen::Vector3d e = scn->getTip()+bottom();// get the tip of the last cylinder
+		Eigen::Vector3d er, rd, r;
+		if (i == 1) {
+			r = bottom();
+			//            std::cout<<"buttom is:  " <<r.transpose()<<std::endl;
+		}
+		else {
+			r = scn->getTip(i - 1)+bottom();
+		}
+
+
+		er = (e - r).normalized();
+		rd = (D - r).normalized();
+
+		double distance = distanceFromSphere();
+
+		std::cout << "distance is:  " << distance << '\n';
+
+		if (distance < 0.1) {
+			IKrun = false;
+			return;
+		}
+		double alpha = acos(er.dot(rd));
+		if (alpha > 1)
+			alpha = 1;
+		if (alpha < -1)
+			alpha = -1;
+		Eigen::Vector3d axis = scn->parentsRotationMatrices(i).inverse() * er.cross(rd);
+
+
+		scn->data(i).MyRotate(axis.normalized(), alpha);
+	}
+}
+
+double Renderer::distanceFromSphere() {
+	Eigen::Vector3d e = spherePosition() - (scn->getTip() + bottom());// get the tip of the last cylinder
+	return e.norm();
+}
 
 void Renderer::UpdatePosition(double xpos, double ypos)
 {
@@ -219,8 +284,31 @@ void Renderer::UpdatePosition(double xpos, double ypos)
 
 void Renderer::MouseProcessing(int button)
 {
-	
-	if (scn->isPicked )
+	/*int index = scn->selected_data_index;
+
+	if (button == 1) {
+		if (scn->isPicked) {
+			scn->MyTranslate(Eigen::Vector3d(-xrel / 2000.0f, 0, 0), true);
+			scn->MyTranslate(Eigen::Vector3d(0, yrel / 2000.0f, 0), true);
+		}
+		else if (scn->selected_data_index!=-1) {
+			
+		}
+		else {
+			scn->data().MyTranslate(Eigen::Vector3d(-xrel / 2000.0f, 0, 0), true);
+			scn->data().MyTranslate(Eigen::Vector3d(0, yrel / 2000.0f, 0), true);
+		}
+
+
+	}
+	else
+	{
+		scn->data(index).MyRotate(Eigen::Vector3d(0, 0, 1), yrel / 180.0f);
+		scn->data(index).MyRotate(Eigen::Vector3d(1, 0, 0), xrel / 180.0f);
+
+	}
+	*/
+	if (scn->isPicked) //object
 	{
 		if (button == 1)
 		{
@@ -230,9 +318,15 @@ void Renderer::MouseProcessing(int button)
 			Eigen::Matrix4f tmpM = core().proj;
 			double xToMove = -(double)xrel / core().viewport[3] * (z+2*near) * (far) / (far + 2*near) * 2.0 * tanf(angle / 360 * M_PI) / (core().camera_zoom * core().camera_base_zoom);
 			double yToMove = (double)yrel / core().viewport[3] *(z+2*near) * (far ) / (far+ 2*near) * 2.0 * tanf(angle / 360 * M_PI) / (core().camera_zoom * core().camera_base_zoom);
-		
-			scn->data().TranslateInSystem(scn->GetRotation(), Eigen::Vector3d(xToMove, 0, 0));
-			scn->data().TranslateInSystem(scn->GetRotation(), Eigen::Vector3d(0, yToMove, 0));
+			if (scn->selected_data_index != 0) {
+				scn->data(1).TranslateInSystem(scn->GetRotation(), Eigen::Vector3d(xToMove, 0, 0));
+				scn->data(1).TranslateInSystem(scn->GetRotation(), Eigen::Vector3d(0, yToMove, 0));
+			}
+			else
+			{
+				scn->data().TranslateInSystem(scn->GetRotation(), Eigen::Vector3d(xToMove, 0, 0));
+				scn->data().TranslateInSystem(scn->GetRotation(), Eigen::Vector3d(0, yToMove, 0));
+			}
 			scn->WhenTranslate();
 		}
 		else
@@ -242,7 +336,7 @@ void Renderer::MouseProcessing(int button)
 
 		}
 	}
-	else
+	else //scene
 	{
 		if (button == 1)
 		{

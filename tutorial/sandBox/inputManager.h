@@ -73,7 +73,7 @@ static void glfw_mouse_press(GLFWwindow* window, int button, int action, int mod
 static void glfw_mouse_scroll(GLFWwindow* window, double x, double y)
 {
 	Renderer* rndr = (Renderer*)glfwGetWindowUserPointer(window);
-	if(rndr->IsPicked())
+	if (rndr->IsPicked())
 		rndr->GetScene()->data().MyScale(Eigen::Vector3d(1 + y * 0.01,1 + y * 0.01,1+y*0.01));
 	else
 		rndr->GetScene()->MyTranslate(Eigen::Vector3d(0,0, - y * 0.03),true);
@@ -168,8 +168,10 @@ static void glfw_key_callback(GLFWwindow* window, int key, int scancode, int act
 			break;
 		case GLFW_KEY_UP:
 			//rndr->direction = 0;
+			rndr->RotateXAxis("up");
 			break;
 		case GLFW_KEY_DOWN:
+			rndr->RotateXAxis("down");
 			//rndr->direction = 1;
 			break;
 		case GLFW_KEY_LEFT:

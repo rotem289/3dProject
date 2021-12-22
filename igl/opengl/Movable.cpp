@@ -63,7 +63,15 @@ void Movable::MyScale(Eigen::Vector3d amt)
 }
 
 
-
+void Movable::MyRotate(Eigen::Vector3d rotAxis, float angle, bool cond)
+{
+	Eigen::Matrix3d mat = Tout.rotation().matrix();
+	mat.transposeInPlace();
+	if (cond)
+		Tout.rotate(Eigen::AngleAxisd(angle, rotAxis));
+	else
+		Tout.rotate(Eigen::AngleAxisd(angle, mat * rotAxis));
+}
 
 
 

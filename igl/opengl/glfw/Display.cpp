@@ -123,6 +123,8 @@ bool Display::launch_rendering(bool loop)
 	{
 
 		double tic = igl::get_seconds();
+		if (renderer->IKrun)
+			renderer->IKCyclic();
 		renderer->Animate();
 		renderer->draw(window);
 		glfwSwapBuffers(window);

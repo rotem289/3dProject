@@ -229,14 +229,11 @@ IGL_INLINE void ImGuiMenu::draw_viewer_menu(igl::opengl::glfw::Viewer *viewer, s
     {
         int savedIndx = viewer->selected_data_index;
       viewer->open_dialog_load_mesh();
-      if (viewer->data_list.size() > viewer->parents.size())
-      {
-          viewer->parents.push_back(-1);
+          //viewer->parents.push_back(-1);
           viewer->data_list.back().set_visible(false, 1);
           viewer->data_list.back().set_visible(true, 2);
           viewer->data_list.back().show_faces = 3;
           viewer->selected_data_index = savedIndx;
-      }
     }
     ImGui::SameLine(0, p);
     if (ImGui::Button("Save##Mesh", ImVec2((w-p)/2.f, 0)))

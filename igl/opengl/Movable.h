@@ -20,6 +20,7 @@ public:
 	void MyRotate(const Eigen::Matrix3d &rot);
 	void MyScale(Eigen::Vector3d amt);
 	Eigen::Matrix4d MakeParentsTransd(int indx);
+	void MyRotate(Eigen::Vector3d rotAxis, float angle, bool cond);
 
 	Eigen::Matrix3d GetRotation() const{ return Tout.rotation().matrix(); }
 
