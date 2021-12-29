@@ -8,6 +8,10 @@
 #include "RENDERER.H"
 #include "RENDERER.H"
 #include "RENDERER.H"
+#include "RENDERER.H"
+#include "RENDERER.H"
+#include "RENDERER.H"
+#include "RENDERER.H"
 #include "igl/opengl/glfw/renderer.h"
 
 #include <GLFW/glfw3.h>
@@ -157,7 +161,7 @@ void Renderer::IKcheck() {
 }
 
 void Renderer::IKswitch() {
-	if ((spherePosition() - bottom()).norm() <= (scn->data_list.size()-1)*1.6) {
+	if ((spherePosition() - bottom()).norm() < (scn->data_list.size()-1)*1.6) {
 		std::cout << "sphere " << spherePosition() << " bottom " << bottom() << " norm " << (spherePosition() - bottom()).norm() << '\n';
 		IKrun = !IKrun;
 	}
@@ -173,6 +177,70 @@ Eigen::Vector3d Renderer::spherePosition() {
 	return scn->data(0).Tout.translation().matrix();
 }
 
+void Renderer::IKfabrik()
+{
+
+	std::vector<Eigen::Vector3d> pi, tips;
+	pi.resize(scn->data_list.size());
+	tips.resize(scn->data_list.size());
+	pi[0] = bottom();
+	tips[0] = bottom();
+	//std::cout << "bottom: " << tips[0].transpose()<<'\n';
+	for (int i = 1; i < scn->data_list.size(); i++) {
+		pi[i] = scn->getTip(i);
+		tips[i] = pi[i];
+		//std::cout << "tip: " << tips[i].transpose() << '\n';
+	}
+	Eigen::Vector3d t = spherePosition();
+	double lambda;
+	double r;
+	Eigen::Vector3d b = pi[0];
+	
+	// STAGE 1: FORWARD REACHING           
+	pi[pi.size() - 1] = t; 
+	for (int i = pi.size() - 2; i >= 0; i--) {
+		r = (pi[i + 1] - pi[i]).norm();   
+		lambda = 1.6 / r;
+		pi[i] = (1 - lambda) * pi[i + 1] + lambda * pi[i]; 
+
+	}
+	
+	//STAGE 2: BACKWARD REACHING
+	pi[0] = b;  
+	for (int i = 0; i < pi.size() - 1; i++) {
+		r = (pi[i + 1] - pi[i]).norm();   
+		lambda = 1.6 / r;
+		pi[i + 1] = (1 - lambda) * pi[i] + lambda * pi[i + 1];
+	}
+
+	for (int i = 0; i < scn->data_list.size() - 1; i++) {
+		Eigen::Vector4d prevPos, newPos;
+		prevPos << (tips[i + 1] - tips[i]), 1;
+		newPos << (pi[i + 1] - pi[i]), 1;
+		double A = prevPos.normalized().dot(newPos.normalized());
+		if (A > 1)
+			A = 1;
+		if (A < -1)
+			A = -1;
+		double alpha = acos(A);
+
+		scn->data_list[i + 1].MyRotate(((scn->CalcParentsTrans(i + 1) * scn->data_list[i + 1].MakeTransd()).inverse() * prevPos.cross3(newPos)).head(3), alpha / 10);
+		
+
+		for (int i = 1; i < scn->data_list.size(); i++) {
+			Eigen::Vector3d euAngles = scn->data_list[i].GetRotation().eulerAngles(2, 0, 2);
+			scn->data_list[i].MyRotate(Eigen::Vector3d(0, 0, 1), -euAngles(2));
+			if (i < scn->data_list.size() - 1)
+				scn->data_list[i + 1].RotateInSystem(Eigen::Vector3d(0, 0, 1), euAngles(2));
+		}
+
+	double distance = distanceFromSphere();
+	if (distance < 0.1) {
+		IKrun = false;
+		std::cout << "distance is:  " << distance << '\n';
+	}
+}
+}
 
 void Renderer::printRotation() {
 	if (!scn->isPicked && scn->selected_data_index > 0) {
@@ -241,7 +309,7 @@ IGL_INLINE void Renderer::IKCyclic() {
 	//std::cout << "data list size " << scn->data_list.size() << '\n';
 	//std::cout << "distance " << distanceFromSphere() << '\n';
 	//std::cout <<"bottom "<< bottom().transpose()<<'\n';
-	for (int i = (scn->data_list.size()-1); IKrun && distanceFromSphere() > 0.1 && i > 0; i--)
+	for (int i = (scn->data_list.size()-1); IKrun && i > 0; i--)
 	{
 		Eigen::Vector3d e = scn->getTip();// get the tip of the last cylinder
 		Eigen::Vector3d er, rd, r;
@@ -264,15 +332,24 @@ IGL_INLINE void Renderer::IKCyclic() {
 			IKrun = false;
 			return;
 		}
-		double alpha = acos(er.dot(rd));
-		if (alpha > 1)
-			alpha = 1;
-		if (alpha < -1)
-			alpha = -1;
+		double A= er.dot(rd);
+		if (A > 1)
+			A = 1;
+		if (A < -1)
+			A = -1;
+		double alpha = acos(A);
 		Eigen::Vector3d axis = scn->parentsRotationMatrices(i).inverse() * er.cross(rd);
 
 
-		scn->data(i).MyRotate(axis.normalized(), alpha);
+		scn->data(i).MyRotate(axis.normalized(), alpha/10);
+
+		for (int i = 1; i < scn->data_list.size(); i++) {
+			Eigen::Vector3d eAngles = scn->data_list[i].GetRotation().eulerAngles(2, 0, 2);
+			scn->data_list[i].MyRotate(Eigen::Vector3d(0, 0, 1), -eAngles(2));
+			if (i < scn->data_list.size() - 1)
+				scn->data_list[i + 1].RotateInSystem(Eigen::Vector3d(0, 0, 1), eAngles(2));
+		}
+
 		IKcheck();
 	}
 }

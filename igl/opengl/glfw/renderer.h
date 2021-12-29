@@ -20,6 +20,7 @@ public:
 	void IKswitch();
 	Eigen::Vector3d bottom();
 	Eigen::Vector3d spherePosition();
+	void IKfabrik();
 	void printRotation();
 	void printTip();
 	void printSphere();
@@ -122,8 +123,9 @@ public:
 	}
 	void TranslateCamera(Eigen::Vector3f amt);
 	void RotateCamera(float amtX, float amtY);
-	void RotateCamera();
+	//void RotateCamera();
 	void IKcheck();
+	//void fabrik();
 	inline bool IsPicked() { return scn->isPicked; }
 	bool IKrun = false;
 
