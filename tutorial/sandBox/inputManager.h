@@ -168,20 +168,20 @@ static void glfw_key_callback(GLFWwindow* window, int key, int scancode, int act
 			rndr->TranslateCamera(Eigen::Vector3f(0, 0, -0.03f));
 			break;
 		case GLFW_KEY_UP:
-			//rndr->direction = 0;
-			rndr->RotateXAxis("up");
+			rndr->rotateObject(0);
+			//rndr->RotateXAxis("up");
 			break;
 		case GLFW_KEY_DOWN:
-			rndr->RotateXAxis("down");
-			//rndr->direction = 1;
+			//rndr->RotateXAxis("down");
+			rndr->rotateObject(1);
 			break;
 		case GLFW_KEY_LEFT:
-			//rndr->direction = 2;
-			rndr->RotateYAxis("left");
+			rndr->rotateObject(2);
+			//rndr->RotateYAxis("left");
 			break;
 		case GLFW_KEY_RIGHT:
-			//rndr->direction = 3;
-			rndr->RotateYAxis("right");
+			rndr->rotateObject(3);
+			//rndr->RotateYAxis("right");
 			break;
 		case 'r':
 		case 'R':
@@ -195,11 +195,15 @@ static void glfw_key_callback(GLFWwindow* window, int key, int scancode, int act
 			rndr->direction = 0;
 		case 'p':
 		case 'P':
-			rndr->printRotation();
+			rndr->printHead();
 			break;
 		case 'd':
 		case 'D':
 			rndr->printSphere();
+			break;
+		case 'v': //change camera view
+		case 'V':
+			rndr->headView = !rndr->headView;
 			break;
 		default: 
 			Eigen::Vector3f shift;

@@ -12,7 +12,6 @@
 #include "C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/glfw/include/GLFW/glfw3.h"
 #include "C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\igl\opengl\glfw\renderer.h"
 #include<igl/circulation.h>
-
 Eigen::VectorXi EMAP;
 Eigen::MatrixXi E, EF, EI;
 typedef std::set < std::pair<double, int> > PriorityQueue;
@@ -58,9 +57,10 @@ void SandBox::Init(const std::string& config)
 			data().set_visible(false, 1);
 		}
 		nameFileout.close();
+
 	}
 	spherePosition = data(0).Tout.translation().matrix();
-	MyTranslate(Eigen::Vector3d(0,0,-10), true);
+	//MyTranslate(Eigen::Vector3d(0,0,10), true);
 	data().set_colors(Eigen::RowVector3d(0.9, 0.1, 0.1));
 }
 

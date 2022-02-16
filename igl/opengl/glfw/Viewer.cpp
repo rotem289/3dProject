@@ -55,7 +55,7 @@ namespace opengl
 {
 namespace glfw
 {
-    int currCylinder = 0;
+    int currSphere = 1;
 
   void Viewer::Init(const std::string config)
   {
@@ -149,8 +149,9 @@ namespace glfw
       Eigen::MatrixXi UV_F;
       Eigen::MatrixXd V;
       Eigen::MatrixXi F;
-      int index;
-      Eigen::Vector3d center;
+      int joints[17]; //first joint is the head, last is tail
+      //int index;
+      //Eigen::Vector3d center;
 
 
       if (!(
@@ -160,28 +161,21 @@ namespace glfw
       {
         return false;
       }
-      if (mesh_file_name_string.substr(mesh_file_name_string.length()-13, mesh_file_name_string.length()-1)=="zcylinder.obj") { //make better
-          index = currCylinder;
-          data().Tout.translate(Eigen::Vector3d(0, 0, 1.6));
-          Eigen::Vector3d min = V.colwise().minCoeff();
-          Eigen::Vector3d max = V.colwise().maxCoeff();
-          center = Eigen::Vector3d((min(0) + max(0)) / 2, (min(1)+max(1))/2, min(2));
-          data().Tin.translate(-center);
-          data().Tout.pretranslate(center);
-          if (index == 0) {
-              data().Tout.translate(Eigen::Vector3d(0, 0, -0.8));
-              parents.push_back(0);
+      if (mesh_file_name_string.substr(mesh_file_name_string.length() - 10, mesh_file_name_string.length() - 1) == "snake3.obj") {
+          Eigen::Vector3d scale = Eigen::Vector3d(0.5, 0.5, 5);
+          //MyScale(scale);
+          for (int i = 1; i <= 17; i++) {
+              joints[i - 1] = V.rows() - i; //index of the joint in V
           }
-          else {
-              parents.push_back(index - 1);
-          }
-          currCylinder++;
-          drawAxis(min, max);
       }
-      else {
-          data().MyTranslate(Eigen::Vector3d(5, 0, 0), true);
-          index = -1;
-          parents.push_back(-1);
+      if (mesh_file_name_string.substr(mesh_file_name_string.length() - 10, mesh_file_name_string.length() - 1) == "sphere.obj") {
+          data().Tout.translate(currSphere*Eigen::Vector3d(1,1,1));
+          //Eigen::Vector3d min = V.colwise().minCoeff();
+          //Eigen::Vector3d max = V.colwise().maxCoeff();
+          //center = Eigen::Vector3d((min(0) + max(0)) / 2, (min(1)+max(1))/2, min(2));
+          //data().Tin.translate(-center);
+          //data().Tout.pretranslate(center);
+          currSphere++;
       }
 
       data().set_mesh(V,F);
@@ -211,6 +205,7 @@ namespace glfw
     }
 
     //for (unsigned int i = 0; i<plugins.size(); ++i)
+    // 
     //  if (plugins[i]->post_load())
     //    return true;
 
@@ -253,6 +248,11 @@ namespace glfw
           ret = ret + (rot * Eigen::Vector3d(0, 0, 1));
       }
       return ret * 1.6;
+  }
+
+  IGL_INLINE Eigen::Vector3d Viewer::getHeadLocation() {
+      Eigen::Vector3d ret = data(0).Tout.translation().matrix();
+      return ret;
   }
 
   IGL_INLINE Eigen::Vector3d Viewer::getTip() {

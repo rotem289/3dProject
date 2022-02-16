@@ -123,11 +123,23 @@ bool Display::launch_rendering(bool loop)
 	{
 
 		double tic = igl::get_seconds();
-		if (renderer->IKrun)
-			renderer->IKfabrik();
+		//if (renderer->IKrun)
+		//	renderer->IKfabrik();
 		renderer->Animate();
 		renderer->draw(window);
 		glfwSwapBuffers(window);
+		if (renderer->headView) { //snake view
+			std::cout << "update" << '\n' << renderer->headLocation().cast<float>() << '\n';
+			renderer->core().camera_translation = renderer->headLocation().cast<float>(); //head location
+			renderer->core().camera_eye << renderer->CameraEye(); //rotation
+			renderer->core().camera_up << renderer->CameraUp(); //how the snake is rotated around itself
+		}
+		else { //top view
+			renderer->core().camera_translation << 0, 25, 0;
+			renderer->core().camera_eye << 0, -1, 0;
+			renderer->core().camera_up << 0, 0, 1;
+		}
+
 		if (renderer->core().is_animating || frame_counter++ < num_extra_frames)
 		{//motion
 			glfwPollEvents();
@@ -146,9 +158,9 @@ bool Display::launch_rendering(bool loop)
 		}
 				if (!loop)
 			return !glfwWindowShouldClose(window);
-		//renderer->moveObject(renderer->direction);
-		//if (renderer->direction != 4)
-			//renderer->collision();
+		renderer->moveObject();
+		int i= renderer->collision();
+		//if(i!=-1)
 #ifdef __APPLE__
 		static bool first_time_hack = true;
 		if (first_time_hack) {

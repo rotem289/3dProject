@@ -135,6 +135,7 @@ public:
   float camera_view_angle;
   float camera_dnear;
   float camera_dfar;
+  bool headView;
 
   bool depth_test;
 

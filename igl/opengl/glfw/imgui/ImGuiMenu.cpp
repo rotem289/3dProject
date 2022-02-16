@@ -207,7 +207,7 @@ IGL_INLINE void ImGuiMenu::draw_viewer_menu(igl::opengl::glfw::Viewer *viewer, s
     if (no_bring_to_front)  window_flags |= ImGuiWindowFlags_NoBringToFrontOnFocus;
 
     ImGui::Begin(
-        "Viewer", p_open,
+        "Welcome", p_open,
         window_flags
     );
     ImGui::SetWindowPos(ImVec2(core[0].viewport[0], core[0].viewport[1]), ImGuiCond_Always);
@@ -216,25 +216,20 @@ IGL_INLINE void ImGuiMenu::draw_viewer_menu(igl::opengl::glfw::Viewer *viewer, s
     no_move = true;
     no_resize = true;
     ImGui::Begin(
-        "Viewer", p_open,
+        "Welcome", p_open,
         window_flags
     );
+    if (ImGui::Button("Start##Game", ImVec2(300 / 2.f, 0)))
+    {
+        viewer->startGame = true;
+    }
 
-  // Mesh
+ /* // Mesh
   if (ImGui::CollapsingHeader("Mesh", ImGuiTreeNodeFlags_DefaultOpen))
   {
     float w = ImGui::GetContentRegionAvailWidth();
     float p = ImGui::GetStyle().FramePadding.x;
-    if (ImGui::Button("Load##Mesh", ImVec2((w-p)/2.f, 0)))
-    {
-        int savedIndx = viewer->selected_data_index;
-      viewer->open_dialog_load_mesh();
-          //viewer->parents.push_back(-1);
-          viewer->data_list.back().set_visible(false, 1);
-          viewer->data_list.back().set_visible(true, 2);
-          viewer->data_list.back().show_faces = 3;
-          viewer->selected_data_index = savedIndx;
-    }
+    
     ImGui::SameLine(0, p);
     if (ImGui::Button("Save##Mesh", ImVec2((w-p)/2.f, 0)))
     {
@@ -275,13 +270,13 @@ IGL_INLINE void ImGuiMenu::draw_viewer_menu(igl::opengl::glfw::Viewer *viewer, s
       [&]() { return core[1].is_set(option); },
       [&](bool value) { return core[1].set(option, value); }
     );
-  };
+  };*/
      /* ImGui::ColorEdit4("Background", core[1].background_color.data(),
       ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_PickerHueWheel);*/
 
 
   // Draw options
-  if (ImGui::CollapsingHeader("Draw Options", ImGuiTreeNodeFlags_DefaultOpen))
+ /* if (ImGui::CollapsingHeader("Draw Options", ImGuiTreeNodeFlags_DefaultOpen))
   {
     if (ImGui::Checkbox("Face-based", &(viewer->data().face_based)))
     {
@@ -308,7 +303,7 @@ IGL_INLINE void ImGuiMenu::draw_viewer_menu(igl::opengl::glfw::Viewer *viewer, s
     make_checkbox("Wireframe", viewer->data().show_lines);
     make_checkbox("Fill", viewer->data().show_faces);
 
-  }
+  }*/
   ImGui::End();
 }
 

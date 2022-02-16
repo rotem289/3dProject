@@ -28,12 +28,15 @@ public:
 	IGL_INLINE void RotateXAxis(std::string direction);
 	IGL_INLINE void IKCyclic();
 	double distanceFromSphere();
-	bool boxCollide(igl::AABB<Eigen::MatrixXd, 3>* tree1, igl::AABB<Eigen::MatrixXd, 3>* tree2);
+	void printHead();
+	Eigen::Vector3d headLocation();
+	Eigen::Vector3f CameraUp();
+	Eigen::Vector3f CameraEye();
 	bool Renderer::overlap(Eigen::RowVector3d A0, Eigen::RowVector3d A1, Eigen::RowVector3d A2, double a0, double a1,
 		double a2, Eigen::RowVector3d B0, Eigen::RowVector3d B1, Eigen::RowVector3d B2, double b0,
 		double b1, double b2, Eigen::Matrix3d C, Eigen::Vector3d D);
 	IGL_INLINE void finalBox(Eigen::AlignedBox<double, 3>* box, int objIndex);
-	void collision();
+	int collision();
 	bool colided = false;
 
 	//IGL_INLINE bool key_pressed(unsigned int unicode_key, int modifiers);
@@ -63,6 +66,7 @@ public:
 	void* callback_key_down_data;
 	void* callback_key_up_data;
 	int direction = 3;
+	//Eigen::Vector3d movement = ()
 
 
 	////////////////////////////
@@ -88,6 +92,8 @@ public:
 	//   other existing viewports
 	IGL_INLINE int append_core(Eigen::Vector4f viewport, bool append_empty = false);
 
+	bool boxCollide(igl::AABB<Eigen::MatrixXd, 3>* tree1, igl::AABB<Eigen::MatrixXd, 3>* tree2, int i);
+
 	// Erase a viewport
 	//
 	// Inputs:
@@ -111,7 +117,8 @@ public:
 	void SetScene(igl::opengl::glfw::Viewer* scn);
 	void UpdatePosition(double xpos, double ypos);
 	void MouseProcessing(int button);
-	void moveObject(int);
+	void moveObject();
+	void rotateObject(int x);
 	inline igl::opengl::glfw::Viewer* GetScene() {
 		return scn;
 	}
@@ -128,6 +135,7 @@ public:
 	//void fabrik();
 	inline bool IsPicked() { return scn->isPicked; }
 	bool IKrun = false;
+	bool headView = false;
 
 private:
 	// Stores all the viewing options

@@ -12,6 +12,12 @@
 #include "RENDERER.H"
 #include "RENDERER.H"
 #include "RENDERER.H"
+#include "RENDERER.H"
+#include "RENDERER.H"
+#include "RENDERER.H"
+#include "RENDERER.H"
+#include "RENDERER.H"
+#include "RENDERER.H"
 #include "igl/opengl/glfw/renderer.h"
 
 #include <GLFW/glfw3.h>
@@ -162,7 +168,7 @@ void Renderer::IKcheck() {
 
 void Renderer::IKswitch() {
 	if ((spherePosition() - bottom()).norm() < (scn->data_list.size()-1)*1.6) {
-		std::cout << "sphere " << spherePosition() << " bottom " << bottom() << " norm " << (spherePosition() - bottom()).norm() << '\n';
+		//std::cout << "sphere " << spherePosition() << " bottom " << bottom() << " norm " << (spherePosition() - bottom()).norm() << '\n';
 		IKrun = !IKrun;
 	}
 	else
@@ -304,11 +310,7 @@ IGL_INLINE void Renderer::RotateXAxis(std::string direction) {
 
 IGL_INLINE void Renderer::IKCyclic() {
 	Eigen::Vector3d D = spherePosition();
-	//std::cout << "sphere pos " << D.transpose() << '\n';
-	//std::cout << "curr tip " << scn->getTip().transpose()<<'\n';
-	//std::cout << "data list size " << scn->data_list.size() << '\n';
-	//std::cout << "distance " << distanceFromSphere() << '\n';
-	//std::cout <<"bottom "<< bottom().transpose()<<'\n';
+
 	for (int i = (scn->data_list.size()-1); IKrun && i > 0; i--)
 	{
 		Eigen::Vector3d e = scn->getTip();// get the tip of the last cylinder
@@ -317,7 +319,7 @@ IGL_INLINE void Renderer::IKCyclic() {
 			r = bottom();
 		}
 		else {
-			r = scn->getTip(i - 1);
+			r = scn->getTip(i-1);
 		}
 
 
@@ -326,33 +328,34 @@ IGL_INLINE void Renderer::IKCyclic() {
 
 		double distance = distanceFromSphere();
 
-		std::cout << "distance is:  " << distance << '\n';
-
 		if (distance < 0.1) {
+			std::cout << "distance is:  " << distance << '\n';
 			IKrun = false;
 			return;
 		}
 		double A= er.dot(rd);
-		if (A > 1)
+		if (A >= 1)
 			A = 1;
-		if (A < -1)
+		if (A <= -1)
 			A = -1;
 		double alpha = acos(A);
-		Eigen::Vector3d axis = scn->parentsRotationMatrices(i).inverse() * er.cross(rd);
+		//std::cout << scn->parentsRotationMatrices(1);
+		Eigen::Vector3d axis = scn->parentsRotationMatrices(i).inverse() * er.cross(rd).normalized();
 
 
-		scn->data(i).MyRotate(axis.normalized(), alpha/10);
-
-		for (int i = 1; i < scn->data_list.size(); i++) {
-			Eigen::Vector3d eAngles = scn->data_list[i].GetRotation().eulerAngles(2, 0, 2);
-			scn->data_list[i].MyRotate(Eigen::Vector3d(0, 0, 1), -eAngles(2));
-			if (i < scn->data_list.size() - 1)
-				scn->data_list[i + 1].RotateInSystem(Eigen::Vector3d(0, 0, 1), eAngles(2));
-		}
+		scn->data_list[i].MyRotate(axis.normalized(), alpha/10);
 
 		IKcheck();
 	}
 }
+
+
+/*for (int i = 1; i < scn->data_list.size(); i++) {
+	Eigen::Vector3d eAngles = scn->data_list[i].GetRotation().eulerAngles(2, 0, 2);
+	scn->data_list[i].MyRotate(Eigen::Vector3d(0, 0, 1), -eAngles(2));
+	if (i < scn->data_list.size() - 1)
+		scn->data_list[i + 1].RotateInSystem(Eigen::Vector3d(0, 0, 1), eAngles(2));
+}*/
 
 double Renderer::distanceFromSphere() {
 	Eigen::Vector3d e = spherePosition() - (scn->getTip());// get the tip of the last cylinder
@@ -420,21 +423,26 @@ void Renderer::MouseProcessing(int button)
 	}
 }
 
-void Renderer::moveObject(int x)
+void Renderer::moveObject() {
+	scn->data(0).MyTranslate(Eigen::Vector3d(0,0,0.05), false);
+}
+
+void Renderer::rotateObject(int x)
 {
-	switch (direction) {
-	case 0: 
-		scn->data(0).TranslateInSystem(scn->GetRotation(), Eigen::Vector3d(0, 0.005, 0));
+	switch (x) {
+	case 0:  //up
+		scn->data(0).MyRotate(Eigen::Vector3d(1, 0, 0), 0.1);
+		std::cout << scn->data(0).Tout.rotation().matrix()<<'\n';
 		break;
-	
-	case 1:
-		scn->data(0).TranslateInSystem(scn->GetRotation(), Eigen::Vector3d(0, -0.005, 0));
+	case 1: //down
+		scn->data(0).MyRotate(Eigen::Vector3d(1, 0, 0), -0.1);
+		std::cout << scn->data(0).Tout.rotation().matrix() << '\n';
 		break;
-	case 2:
-		scn->data(0).TranslateInSystem(scn->GetRotation(), Eigen::Vector3d(-0.005, 0, 0));
+	case 2: //left
+		scn->data(0).MyRotate(Eigen::Vector3d(0, 1, 0), 0.1);
 		break;
-	case 3:
-		scn->data(0).TranslateInSystem(scn->GetRotation(), Eigen::Vector3d(0.005, 0, 0));
+	case 3: //right
+		scn->data(0).MyRotate(Eigen::Vector3d(0, 1, 0), -0.1);
 		break;
 	case 4:
 		break;
@@ -587,9 +595,14 @@ IGL_INLINE void Renderer::resize(GLFWwindow* window,int w, int h)
 		return 0;
 	}
 
-	void Renderer::collision() {
-		if (boxCollide(&scn->data(0).tree, &scn->data(1).tree))
-			colided = true;
+	int Renderer::collision() {
+		for (int i = 1; i < scn->data_list.size(); i++) {
+			if (boxCollide(&scn->data(0).tree, &scn->data(i).tree,i)) {
+				scn->data_list.erase(scn->data_list.begin() + 1);
+				return i;
+			}
+		}
+		return -1;
 	}
 
 	IGL_INLINE int Renderer::append_core(Eigen::Vector4f viewport, bool append_empty /*= false*/)
@@ -610,7 +623,7 @@ IGL_INLINE void Renderer::resize(GLFWwindow* window,int w, int h)
 		return core_list.back().id;
 	}
 
-	bool Renderer::boxCollide(igl::AABB<Eigen::MatrixXd, 3> *tree1, igl::AABB<Eigen::MatrixXd, 3> *tree2) {
+	bool Renderer::boxCollide(igl::AABB<Eigen::MatrixXd, 3> *tree1, igl::AABB<Eigen::MatrixXd, 3> *tree2,int i) {
 		//std::cout << "box collide";
 		//std::cout << "collided: " << colided;
 		//std::cout << " direction " << direction;
@@ -620,17 +633,11 @@ IGL_INLINE void Renderer::resize(GLFWwindow* window,int w, int h)
 		//std::cout << "center2" << center2 << '\n';
 
 		Eigen::Matrix3d A = scn->data(0).Tout *Eigen::Matrix3d::Identity();
-		Eigen::Matrix3d B = scn->data(1).Tout * Eigen::Matrix3d::Identity();
+		Eigen::Matrix3d B = scn->data(i).Tout * Eigen::Matrix3d::Identity();
 		Eigen::Matrix3d C = (A.transpose() * B);
 		Eigen::Vector3d C0 = (scn->data(0).MakeTransScaled() * Eigen::Vector4d(center1[0], center1[1], center1[2], 1)).head(3);
-		Eigen::Vector3d C1 = (scn->data(1).MakeTransScaled() * Eigen::Vector4d(center2[0], center2[1], center2[2], 1)).head(3);
-		//std::cout << "maketranssclaed " << scn->data().MakeTransScaled() << '\n';
-		//std::cout << "maketranssclaed0 " << scn->data(0).MakeTransScaled() << '\n';
-		//std::cout << "maketranssclaed1 " << scn->data(1).MakeTransScaled() << '\n';
+		Eigen::Vector3d C1 = (scn->data(i).MakeTransScaled() * Eigen::Vector4d(center2[0], center2[1], center2[2], 1)).head(3);
 
-		
-		//std::cout <<"C0" << C0<<'\n';
-		//std::cout << "C1" << C1 << '\n';
 		Eigen::Vector3d D = C1 - C0;
 		double ax = tree1->m_box.sizes().cast<double>()[0] / 2;
 		double ay = tree1->m_box.sizes().cast<double>()[1] / 2;
@@ -644,23 +651,40 @@ IGL_INLINE void Renderer::resize(GLFWwindow* window,int w, int h)
 		if (!separate) {
 			if (tree1->is_leaf()) {
 				if (tree2->is_leaf()) { //both leaves
-					direction = 4;
+					//direction = 4;
 					finalBox(&tree1->m_box, 0);
 					finalBox(&tree2->m_box, 1);
 					return true;
 				}
 				else //only 1 is leaf
-					return boxCollide(tree1, tree2->m_right) || boxCollide(tree1, tree2->m_left);
+					return boxCollide(tree1, tree2->m_right,i) || boxCollide(tree1, tree2->m_left,i);
 			}
 			else if (tree2->is_leaf()) //only 2 is leaf
-				return boxCollide(tree1->m_right, tree2) || boxCollide(tree1->m_left, tree2);
+				return boxCollide(tree1->m_right, tree2,i) || boxCollide(tree1->m_left, tree2,i);
 			else //no leaves
-				return boxCollide(tree1->m_right, tree2->m_right) || boxCollide(tree1->m_right, tree2->m_left) ||
-				boxCollide(tree1->m_left, tree2->m_right) || boxCollide(tree1->m_left, tree2->m_left);
+				return boxCollide(tree1->m_right, tree2->m_right,i) || boxCollide(tree1->m_right, tree2->m_left,i) ||
+				boxCollide(tree1->m_left, tree2->m_right,i) || boxCollide(tree1->m_left, tree2->m_left,i);
 		}
 		else
 			return false;
 	}
+
+	void Renderer::printHead() {
+		std::cout << headLocation() <<'\n';
+	}
+
+	Eigen::Vector3d Renderer::headLocation() {
+		return scn->data(0).Tout.translation().matrix().transpose() + scn->data(0).V.row(scn->data().V.rows() - 1);
+	}
+
+	Eigen::Vector3f Renderer::CameraUp() {
+		return scn->data(0).Tout.rotation().matrix().cast<float>() * Eigen::Vector3f(1, 0, 0);
+	}
+
+	Eigen::Vector3f Renderer::CameraEye() {
+		return scn->data(0).Tout.rotation().matrix().cast<float>() * Eigen::Vector3f(0, 0, 1);
+	}
+
 
 	IGL_INLINE void Renderer::finalBox(Eigen::AlignedBox<double,3> *box, int objIndex)
 	{

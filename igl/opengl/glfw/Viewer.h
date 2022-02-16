@@ -63,6 +63,8 @@ namespace glfw
     Eigen::Vector3d getTipRecursive(int index);
 
     Eigen::Vector3d getRotationVector(int index);
+    IGL_INLINE Eigen::Vector3d getHeadLocation();
+    bool startGame = false;
 
 	//IGL_INLINE void init_plugins();
     //IGL_INLINE void shutdown_plugins();
