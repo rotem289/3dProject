@@ -1,6 +1,6 @@
-^C:\USERS\ROTEM\DOCUMENTS\CMAKE\ENGINEFORANIMATIONCOURSE\EXTERNAL\.CACHE\LIBIGL-IMGUI\CMAKEFILES\ACA70273BD4683A604755899FFF9CBCB\GENERATE.STAMP.RULE
+^D:\ANIMATION3DPROJECTS\PROJECT\EXTERNAL\.CACHE\LIBIGL-IMGUI\CMAKEFILES\C874940732D4078EDC8E211712114A5C\GENERATE.STAMP.RULE
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/libigl-imgui -BC:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/libigl-imgui --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/libigl-imgui/libigl-imgui-download.sln
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/Animation3DProjects/Project/external/.cache/libigl-imgui -BD:/Animation3DProjects/Project/external/.cache/libigl-imgui --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/Animation3DProjects/Project/external/.cache/libigl-imgui/libigl-imgui-download.sln
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

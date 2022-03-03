@@ -1,6 +1,6 @@
-^C:\USERS\ROTEM\DOCUMENTS\CMAKE\ENGINEFORANIMATIONCOURSE\EXTERNAL\.CACHE\GLFW\CMAKELISTS.TXT
+^D:\ANIMATION3DPROJECTS\PROJECT\EXTERNAL\.CACHE\GLFW\CMAKELISTS.TXT
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/glfw -BC:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/glfw --check-stamp-file C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/glfw/CMakeFiles/generate.stamp
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/Animation3DProjects/Project/external/.cache/glfw -BD:/Animation3DProjects/Project/external/.cache/glfw --check-stamp-file D:/Animation3DProjects/Project/external/.cache/glfw/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

@@ -1,23 +1,4 @@
 #include "RENDERER.H"
-#include "RENDERER.H"
-#include "RENDERER.H"
-#include "RENDERER.H"
-#include "RENDERER.H"
-#include "RENDERER.H"
-#include "RENDERER.H"
-#include "RENDERER.H"
-#include "RENDERER.H"
-#include "RENDERER.H"
-#include "RENDERER.H"
-#include "RENDERER.H"
-#include "RENDERER.H"
-#include "RENDERER.H"
-#include "RENDERER.H"
-#include "RENDERER.H"
-#include "RENDERER.H"
-#include "RENDERER.H"
-#include "RENDERER.H"
-#include "RENDERER.H"
 #include "igl/opengl/glfw/renderer.h"
 
 #include <GLFW/glfw3.h>
@@ -57,7 +38,7 @@ next_core_id(2)
 	yold = 0;
 }
 
-IGL_INLINE void Renderer::draw( GLFWwindow* window)
+IGL_INLINE void Renderer::draw(GLFWwindow* window)
 {
 	using namespace std;
 	using namespace Eigen;
@@ -67,12 +48,12 @@ IGL_INLINE void Renderer::draw( GLFWwindow* window)
 
 	int width_window, height_window;
 	glfwGetWindowSize(window, &width_window, &height_window);
-	
+
 	auto highdpi_tmp = (width_window == 0 || width == 0) ? highdpi : (width / width_window);
 
 	if (fabs(highdpi_tmp - highdpi) > 1e-8)
 	{
-		post_resize(window,width, height);
+		post_resize(window, width, height);
 		highdpi = highdpi_tmp;
 	}
 
@@ -81,6 +62,8 @@ IGL_INLINE void Renderer::draw( GLFWwindow* window)
 		core.clear_framebuffers();
 	}
 	int coreIndx = 1;
+}
+void Renderer::DrawMenu() {
 	if (menu)
 	{
 		menu->pre_draw();
@@ -115,10 +98,11 @@ void Renderer::SetScene(igl::opengl::glfw::Viewer* viewer)
 	scn = viewer;
 }
 
-IGL_INLINE void Renderer::init(igl::opengl::glfw::Viewer* viewer,int coresNum, igl::opengl::glfw::imgui::ImGuiMenu* _menu)
+IGL_INLINE void Renderer::init(igl::opengl::glfw::Viewer* viewer,int coresNum, igl::opengl::glfw::imgui::ImGuiMenu* _menu, Display *_display)
 {
+	moveCamera = false;
 	scn = viewer;
-	
+	display = _display;
 	doubleVariable = 0;
 	core().init(); 
 	menu = _menu;
@@ -392,6 +376,7 @@ void Renderer::MouseProcessing(int button)
 				scn->data().TranslateInSystem(scn->GetRotation(), Eigen::Vector3d(0, yToMove, 0));
 			}
 			scn->WhenTranslate();
+			moveCamera = true;
 		}
 		else
 		{
@@ -412,7 +397,7 @@ void Renderer::MouseProcessing(int button)
 			double yToMove = (double)yrel / core().viewport[3] * far / z * near * 2.0f * tanf(angle / 360 * M_PI) / (core().camera_zoom * core().camera_base_zoom);
 			scn->MyTranslate(Eigen::Vector3d(xToMove, 0, 0), true);
 			scn->MyTranslate(Eigen::Vector3d(0, yToMove, 0), true);
-
+			moveCamera = true;
 		}
 		else
 		{
@@ -432,11 +417,9 @@ void Renderer::rotateObject(int x)
 	switch (x) {
 	case 0:  //up
 		scn->data(0).MyRotate(Eigen::Vector3d(1, 0, 0), 0.1);
-		std::cout << scn->data(0).Tout.rotation().matrix()<<'\n';
 		break;
 	case 1: //down
 		scn->data(0).MyRotate(Eigen::Vector3d(1, 0, 0), -0.1);
-		std::cout << scn->data(0).Tout.rotation().matrix() << '\n';
 		break;
 	case 2: //left
 		scn->data(0).MyRotate(Eigen::Vector3d(0, 1, 0), 0.1);
@@ -465,6 +448,27 @@ void Renderer::RotateCamera(float amtX, float amtY)
 	core().camera_eye = Mat* core().camera_eye;
 	
 }
+
+void Renderer::cameraSnakeEye()
+{
+	if (scn->snakeEye) {
+		Eigen::Vector3d tempEye = (scn->data_list[scn->data_list.size() - 1].MakeTransd() * Eigen::Vector4d(0, 0, 0, 1)).head(3); //Eigen::Vector3d(0, 0, 0);
+		core().camera_eye << tempEye[0], tempEye[1], tempEye[2];
+		Eigen::Vector3d tempUp = scn->data_list[scn->data_list.size() - 1].GetRotation() * Eigen::Vector3d(0, 1, 0);
+		core().camera_up << tempUp[0], tempUp[1], tempUp[2];
+		Eigen::Vector3d tempCenter = (scn->data_list[scn->data_list.size() - 1].MakeTransd() * Eigen::Vector4d(0, 0, 5, 1)).head(3);
+		core().camera_center << tempCenter[0], tempCenter[1], tempCenter[2];
+		//std::cout << core().camera_center << "\n";
+		//std::cout << tempCenter << "\n";
+	}
+	else
+	{
+		core().camera_eye << 0, 0, 18;
+		core().camera_center << 0, 0, 0;
+		core().camera_up << 0, 1, 0;
+	}
+}
+
 
 Renderer::~Renderer()
 {
@@ -596,9 +600,11 @@ IGL_INLINE void Renderer::resize(GLFWwindow* window,int w, int h)
 	}
 
 	int Renderer::collision() {
+		//std::cout << "data size:" << scn->data_list.size();
 		for (int i = 1; i < scn->data_list.size(); i++) {
 			if (boxCollide(&scn->data(0).tree, &scn->data(i).tree,i)) {
-				scn->data_list.erase(scn->data_list.begin() + 1);
+				std::cout << i;
+				scn->data(i).clear();
 				return i;
 			}
 		}
@@ -618,19 +624,16 @@ IGL_INLINE void Renderer::resize(GLFWwindow* window,int w, int h)
 				data.set_visible(true, core_list.back().id);
 				//data.copy_options(core(), core_list.back());
 			}
+
 		}
 		selected_core_index = core_list.size() - 1;
 		return core_list.back().id;
 	}
 
 	bool Renderer::boxCollide(igl::AABB<Eigen::MatrixXd, 3> *tree1, igl::AABB<Eigen::MatrixXd, 3> *tree2,int i) {
-		//std::cout << "box collide";
-		//std::cout << "collided: " << colided;
-		//std::cout << " direction " << direction;
+
 		Eigen::Vector3d center1 = tree1->m_box.center();
-		//std::cout << "center1" << center1 << '\n';
 		Eigen::Vector3d center2 = tree2->m_box.center();
-		//std::cout << "center2" << center2 << '\n';
 
 		Eigen::Matrix3d A = scn->data(0).Tout *Eigen::Matrix3d::Identity();
 		Eigen::Matrix3d B = scn->data(i).Tout * Eigen::Matrix3d::Identity();
@@ -652,8 +655,8 @@ IGL_INLINE void Renderer::resize(GLFWwindow* window,int w, int h)
 			if (tree1->is_leaf()) {
 				if (tree2->is_leaf()) { //both leaves
 					//direction = 4;
-					finalBox(&tree1->m_box, 0);
-					finalBox(&tree2->m_box, 1);
+					//finalBox(&tree1->m_box, 0);
+					//finalBox(&tree2->m_box, i);
 					return true;
 				}
 				else //only 1 is leaf
@@ -741,43 +744,6 @@ IGL_INLINE void Renderer::resize(GLFWwindow* window,int w, int h)
 		double c00 = C(0,0), c01 = C(0,1), c02 = C(0, 2), 
 			   c10 = C(1, 0), c11 = C(1, 1), c12 = C(1, 2), 
 			   c20 = C(2, 0), c21 = C(2, 1), c22 = C(2, 2);
-
-
-		/*std::cout << "A0" << A0 << '\n';
-		std::cout << "A1" << A1 << '\n';
-		std::cout << "A2" << A2 << '\n';
-		std::cout << "a0" << a0 << '\n';
-		std::cout << "a1" << a1 << '\n';
-		std::cout << "a2" << a2 << '\n';
-		std::cout << "B0" << B0 << '\n';
-		std::cout << "B1" << B1 << '\n';
-		std::cout << "B2" << B2 << '\n';
-		std::cout << "b0" << b0 << '\n';
-		std::cout << "b1" << b1 << '\n';
-		std::cout << "b2" << b2 << '\n';
-		std::cout << "C" << C << '\n';
-		std::cout << "D" << D << '\n';
-
-		std::cout << (a0 + b0 * abs(c00) + b1 * abs(c01) + b2 * abs(c02))<< "<" <<(abs(A0.dot(D))) << '\n';
-		std::cout << (a1 + b0 * abs(c10) + b1 * abs(c11) + b2 * abs(c12))<<"<"<<(abs(A1.dot(D))) << '\n';
-		std::cout << (a2 + b0 * abs(c20) + b1 * abs(c21) + b2 * abs(c22)) << "<" <<(abs(A2.dot(D))) << '\n';
-		std::cout << (b0 + a0 * abs(c00) + a1 * abs(c10) + a2 * abs(c20)) << "<" << (abs(B0.dot(D))) << '\n';
-		std::cout << (b1 + a0 * abs(c01) + a1 * abs(c11) + a2 * abs(c21)) << "<" << (abs(B1.dot(D))) << '\n';
-		std::cout << (b2 + a0 * abs(c02) + a1 * abs(c12) + a2 * abs(c22)) << "<" << (abs(B2.dot(D))) << '\n';
-
-		std::cout << (a1 * abs(c20) + a2 * abs(c10) + b1 * abs(c02) + b2 * abs(c01)) << "<" << (abs(c10 * A2.dot(D) - c20 * A1.dot(D)))<<'\n';
-		std::cout << (a1 * abs(c21) + a2 * abs(c11) + b0 * abs(c02) + b2 * abs(c00)) << "<" << (abs(c11 * A2.dot(D) - c21 * A1.dot(D))) << '\n';
-		std::cout << (a1 * abs(c22) + a2 * abs(c12) + b0 * abs(c01) + b1 * abs(c00)) << "<" << (abs(c12 * A2.dot(D) - c22 * A1.dot(D))) << '\n';
-		
-		std::cout << (a0 * abs(c20) + a2 * abs(c00) + b1 * abs(c12) + b2 * abs(c11)) << "<" << (abs(c20 * A0.dot(D) - c00 * A2.dot(D))) << '\n';
-		std::cout << (a0 * abs(c21) + a2 * abs(c01) + b0 * abs(c12) + b2 * abs(c10)) << "<" << (abs(c21 * A0.dot(D) - c01 * A2.dot(D))) << '\n';
-		std::cout << (a0 * abs(c22) + a2 * abs(c02) + b0 * abs(c11) + b1 * abs(c10)) << "<" << (abs(c22 * A0.dot(D) - c02 * A2.dot(D))) << '\n';
-
-			
-		std::cout << (a0 * abs(c10) + a1 * abs(c00) + b1 * abs(c22) + b2 * abs(c21)) << "<" << (abs(c00 * A1.dot(D) - c10 * A0.dot(D))) << '\n';
-		std::cout << (a0 * abs(c11) + a2 * abs(c01) + b0 * abs(c22) + b2 * abs(c20)) << "<" << (abs(c01 * A1.dot(D) - c11 * A0.dot(D))) << '\n';
-		std::cout << (a0 * abs(c12) + a2 * abs(c02) + b0 * abs(c21) + b1 * abs(c20)) << "<" << (abs(c02 * A1.dot(D) - c12 * A0.dot(D))) << '\n';
-		*/
 		return
 			a0 + b0 * abs(c00) + b1 * abs(c01) + b2 * abs(c02) < abs(A0.dot(D)) ||
 			a1 + b0 * abs(c10) + b1 * abs(c11) + b2 * abs(c12) < abs(A1.dot(D)) ||

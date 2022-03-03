@@ -2,6 +2,7 @@
 #include "igl/opengl/glfw/Display.h"
 #include "igl/opengl/glfw/Renderer.h"
 #include "sandBox.h"
+#include "igl/look_at.h"
 
 //#include <igl/opengl/glfw/imgui/ImGuiMenu.h>
 //#include <igl/opengl/glfw/imgui/ImGuiHelpers.h>
@@ -102,6 +103,11 @@ void glfw_window_size(GLFWwindow* window, int width, int height)
 static void glfw_key_callback(GLFWwindow* window, int key, int scancode, int action, int modifier)
 {
 	Renderer* rndr = (Renderer*) glfwGetWindowUserPointer(window);
+	Eigen::Vector3d tmp;
+	Eigen::Vector3d tempEye;
+	Eigen::Vector3d tempUp;
+	Eigen::Vector3d tempCenter;
+	std::string texturePath = "C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/tutorial/textures/snake.jpg";
 	SandBox* scn = (SandBox*)rndr->GetScene();
 	bool move = true;
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
@@ -122,6 +128,13 @@ static void glfw_key_callback(GLFWwindow* window, int key, int scancode, int act
 			scn->data().set_face_based(!scn->data().face_based);
 			break;
 		}
+		case 'c':
+		case 'C': 
+		{
+			tmp = (scn->MakeTransd().inverse() * Eigen::Vector4d(0, 0, 0, 1)).head<3>();
+			scn->data().SetCenterOfRotation(tmp);
+			break;
+		}
 		case 'I':
 		case 'i':
 		{
@@ -138,14 +151,14 @@ static void glfw_key_callback(GLFWwindow* window, int key, int scancode, int act
 		case 'O':
 		case 'o':
 		{
-			rndr->core().orthographic = !rndr->core().orthographic;
+			rndr->GetScene()->data(2).MyTranslate(Eigen::Vector3d(10, 10, 10),false);
+			//rndr->core().orthographic = !rndr->core().orthographic;
 			break;
 		}
 		case 'T':
 		case 't':
 		{
-			rndr->printTip();
-			break;
+			scn->SetTexture(1, texturePath);
 		}
 		case '[':
 		case ']':
@@ -165,30 +178,73 @@ static void glfw_key_callback(GLFWwindow* window, int key, int scancode, int act
 			break;
 		case 's':
 		case 'S':
-			rndr->TranslateCamera(Eigen::Vector3f(0, 0, -0.03f));
+			scn->skinning = !scn->skinning;
 			break;
 		case GLFW_KEY_UP:
-			rndr->rotateObject(0);
-			//rndr->RotateXAxis("up");
+			if (scn->down || scn->left || scn->right)
+			{
+				scn->down = false;
+				scn->left = false;
+				scn->right = false;
+				scn->isActive = !scn->isActive;
+			}
+			if (!scn->up)
+				scn->up = true;
+			else
+				scn->up = false;
+			scn->rotDir = true;
+			scn->isActive = !scn->isActive;			
 			break;
 		case GLFW_KEY_DOWN:
-			//rndr->RotateXAxis("down");
-			rndr->rotateObject(1);
+			if (scn->up || scn->left || scn->right)
+			{
+				scn->up = false;
+				scn->left = false;
+				scn->right = false;
+				scn->isActive = !scn->isActive;
+			}
+			if (!scn->down)
+				scn->down = true;
+			else
+				scn->down = false;
+			scn->rotDir = true;
+			scn->isActive = !scn->isActive;
 			break;
 		case GLFW_KEY_LEFT:
-			rndr->rotateObject(2);
-			//rndr->RotateYAxis("left");
+			if (scn->up || scn->down || scn->right)
+			{
+				scn->up = false;
+				scn->down = false;
+				scn->right = false;
+				scn->isActive = !scn->isActive;
+			}
+			if (!scn->left)
+				scn->left = true;
+			else
+				scn->left = false;
+			scn->rotDir = true;
+			scn->isActive = !scn->isActive;
 			break;
 		case GLFW_KEY_RIGHT:
-			rndr->rotateObject(3);
-			//rndr->RotateYAxis("right");
+			if (scn->up || scn->down || scn->left)
+			{
+				scn->up = false;
+				scn->down = false;
+				scn->left = false;
+				scn->isActive = !scn->isActive;
+			}
+			if (!scn->right)
+				scn->right = true;
+			else
+				scn->right = false;
+			scn->rotDir = true;
+			scn->isActive = !scn->isActive;
 			break;
 		case 'r':
 		case 'R':
 			scn->reset();
 			break;
 		case ' ':
-			rndr->IKswitch();
 			break;
 		case 'm':
 		case 'M':
@@ -203,7 +259,7 @@ static void glfw_key_callback(GLFWwindow* window, int key, int scancode, int act
 			break;
 		case 'v': //change camera view
 		case 'V':
-			rndr->headView = !rndr->headView;
+			scn->snakeEye = !scn->snakeEye;
 			break;
 		default: 
 			Eigen::Vector3f shift;

@@ -10,6 +10,22 @@
 #include <igl/get_seconds.h>
 #include "igl/opengl/glfw/renderer.h"
 
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+#include <external/stb_image.h>
+
+#include <external/glm/glm.hpp>
+#include <external/glm/gtc/matrix_transform.hpp>
+#include <external/glm/gtc/type_ptr.hpp>
+
+#include <external/learnopengl/filesystem.h>
+#include <external/learnopengl/shader_m.h>
+#include <external/learnopengl/camera.h>
+#include <external/learnopengl/model.h>
+
+#include <iostream>
+#include <vector>
+
 static void glfw_error_callback(int error, const char* description)
 {
 	fputs(description, stderr);
@@ -106,8 +122,102 @@ Display::Display(int windowWidth, int windowHeight, const std::string& title)
 		
 }
 
+unsigned int Display::loadCubeMap(std::vector<std::string> faces)
+{
+	unsigned int textureID;
+	glGenTextures(1, &textureID);
+	glBindTexture(GL_TEXTURE_CUBE_MAP, textureID);
+	int width, height, nrChannels;
+	for (unsigned int i = 0; i < faces.size(); i++)
+	{
+		unsigned char* data = stbi_load(faces[i].c_str(), &width, &height, &nrChannels, 0);
+		if (data)
+		{
+			glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+			stbi_image_free(data);
+		}
+		else
+		{
+			std::cout << "Cubemap texture failed to load at path: " << faces[i] << std::endl;
+			stbi_image_free(data);
+		}
+	}
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+	return textureID;
+}
+
+
 bool Display::launch_rendering(bool loop)
 {
+	const unsigned int SCR_WIDTH = 800;
+	const unsigned int SCR_HEIGHT = 600;
+	Camera camera = (glm::vec3(0.0f, 0.0f, 3.0f));
+	Shader skyboxShader("C://Users//rotem//Documents//cmake//EngineForAnimationCourse//tutorial//textures//shader.vs", "C://Users//rotem//Documents//cmake//EngineForAnimationCourse//tutorial//textures//shader.fs");
+	float skyboxVertices[] = {
+		// positions          
+		-1.0f,  1.0f, -1.0f,
+		-1.0f, -1.0f, -1.0f,
+		 1.0f, -1.0f, -1.0f,
+		 1.0f, -1.0f, -1.0f,
+		 1.0f,  1.0f, -1.0f,
+		-1.0f,  1.0f, -1.0f,
+		-1.0f, -1.0f,  1.0f,
+		-1.0f, -1.0f, -1.0f,
+		-1.0f,  1.0f, -1.0f,
+		-1.0f,  1.0f, -1.0f,
+		-1.0f,  1.0f,  1.0f,
+		-1.0f, -1.0f,  1.0f,
+		 1.0f, -1.0f, -1.0f,
+		 1.0f, -1.0f,  1.0f,
+		 1.0f,  1.0f,  1.0f,
+		 1.0f,  1.0f,  1.0f,
+		 1.0f,  1.0f, -1.0f,
+		 1.0f, -1.0f, -1.0f,
+		-1.0f, -1.0f,  1.0f,
+		-1.0f,  1.0f,  1.0f,
+		 1.0f,  1.0f,  1.0f,
+		 1.0f,  1.0f,  1.0f,
+		 1.0f, -1.0f,  1.0f,
+		-1.0f, -1.0f,  1.0f,
+		-1.0f,  1.0f, -1.0f,
+		 1.0f,  1.0f, -1.0f,
+		 1.0f,  1.0f,  1.0f,
+		 1.0f,  1.0f,  1.0f,
+		-1.0f,  1.0f,  1.0f,
+		-1.0f,  1.0f, -1.0f,
+		-1.0f, -1.0f, -1.0f,
+		-1.0f, -1.0f,  1.0f,
+		 1.0f, -1.0f, -1.0f,
+		 1.0f, -1.0f, -1.0f,
+		-1.0f, -1.0f,  1.0f,
+		 1.0f, -1.0f,  1.0f
+	};
+	// skybox VAO
+	unsigned int skyboxVAO, skyboxVBO;
+	glGenVertexArrays(1, &skyboxVAO);
+	glGenBuffers(1, &skyboxVBO);
+	glBindVertexArray(skyboxVAO);
+	glBindBuffer(GL_ARRAY_BUFFER, skyboxVBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(skyboxVertices), &skyboxVertices, GL_STATIC_DRAW);
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+	std::vector<std::string> faces
+	{
+			FileSystem::getPath("/tutorial/textures/right.jpg"),
+			FileSystem::getPath("/tutorial/textures/left.jpg"),
+			FileSystem::getPath("/tutorial/textures/top.jpg"),
+			FileSystem::getPath("/tutorial/textures/bottom.jpg"),
+			FileSystem::getPath("/tutorial/textures/front.jpg"),
+			FileSystem::getPath("/tutorial/textures/back.jpg")
+	};
+	unsigned int cubemapTexture = loadCubeMap(faces);
+	skyboxShader.use();
+	skyboxShader.setInt("skybox", 0);
+
 	// glfwMakeContextCurrent(window);
 	// Rendering loop
 	const int num_extra_frames = 5;
@@ -123,13 +233,37 @@ bool Display::launch_rendering(bool loop)
 	{
 
 		double tic = igl::get_seconds();
-		//if (renderer->IKrun)
-		//	renderer->IKfabrik();
+
 		renderer->Animate();
 		renderer->draw(window);
+
+		skyboxShader.use();
+		glm::mat4 modle = glm::mat4(1.0f);
+		glm::mat4 view = camera.GetViewMatrix();
+		glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+		// draw skybox as last
+		glDepthFunc(GL_LEQUAL);  //GL_LEQUAL -  change depth function so depth test passes when values are equal to depth buffer's content
+		//skyboxShader.use();
+		view = glm::mat4(glm::mat3(camera.GetViewMatrix())); // remove translation from the view matrix
+		skyboxShader.setMat4("modle", modle);
+		skyboxShader.setMat4("view", view);
+		skyboxShader.setMat4("projection", projection);
+		// skybox cube
+		glBindVertexArray(skyboxVAO);
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_CUBE_MAP, cubemapTexture);
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+		glBindVertexArray(0);
+		glDepthFunc(GL_LESS); //GL_LESS - set depth function back to default
+		if (renderer->moveCamera) {
+			camera.Front = glm::vec3(renderer->core().camera_center[0], renderer->core().camera_center[1], renderer->core().camera_center[2]);
+			camera.Position = glm::vec3(renderer->core().camera_eye[0], renderer->core().camera_eye[1], renderer->core().camera_eye[2]);
+			camera.Up = glm::vec3(renderer->core().camera_up[0], renderer->core().camera_up[1], renderer->core().camera_up[2]);
+			renderer->moveCamera = false;
+		}
+		renderer->DrawMenu();
 		glfwSwapBuffers(window);
 		if (renderer->headView) { //snake view
-			std::cout << "update" << '\n' << renderer->headLocation().cast<float>() << '\n';
 			renderer->core().camera_translation = renderer->headLocation().cast<float>(); //head location
 			renderer->core().camera_eye << renderer->CameraEye(); //rotation
 			renderer->core().camera_up << renderer->CameraUp(); //how the snake is rotated around itself
@@ -158,9 +292,7 @@ bool Display::launch_rendering(bool loop)
 		}
 				if (!loop)
 			return !glfwWindowShouldClose(window);
-		renderer->moveObject();
-		int i= renderer->collision();
-		//if(i!=-1)
+		
 #ifdef __APPLE__
 		static bool first_time_hack = true;
 		if (first_time_hack) {

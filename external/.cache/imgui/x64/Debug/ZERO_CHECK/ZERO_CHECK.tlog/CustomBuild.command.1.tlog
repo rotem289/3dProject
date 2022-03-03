@@ -1,6 +1,6 @@
-^C:\USERS\ROTEM\DOCUMENTS\CMAKE\ENGINEFORANIMATIONCOURSE\EXTERNAL\.CACHE\IMGUI\CMAKEFILES\B0168309EEF1D654B15484644C71203C\GENERATE.STAMP.RULE
+^D:\ANIMATION3DPROJECTS\PROJECT\EXTERNAL\.CACHE\IMGUI\CMAKEFILES\3735E025D631BE3C26E6FA814378924E\GENERATE.STAMP.RULE
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/imgui -BC:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/imgui --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/imgui/imgui-download.sln
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/Animation3DProjects/Project/external/.cache/imgui -BD:/Animation3DProjects/Project/external/.cache/imgui --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/Animation3DProjects/Project/external/.cache/imgui/imgui-download.sln
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

@@ -1,4 +1,4 @@
-#include "tutorial/sandBox/sandBox.h"
+#include "tutorial\sandBox\sandBox.h"
 #include "igl/edge_flaps.h"
 #include "C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\igl\COLLAPSE_EDGE.H"
 #include "Eigen/dense"
@@ -12,6 +12,14 @@
 #include "C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/glfw/include/GLFW/glfw3.h"
 #include "C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\igl\opengl\glfw\renderer.h"
 #include<igl/circulation.h>
+#include <igl/boundary_loop.h>
+#include <igl/map_vertices_to_circle.h>
+#include <igl/harmonic.h>
+#include <igl/dqs.h>
+#include <windows.h>
+#include <mmsystem.h>
+
+
 Eigen::VectorXi EMAP;
 Eigen::MatrixXi E, EF, EI;
 typedef std::set < std::pair<double, int> > PriorityQueue;
@@ -32,6 +40,27 @@ void SandBox::Init(const std::string& config)
 	std::string item_name;
 	std::ifstream nameFileout;
 	doubleVariable = 0;
+	//sound
+	//PlaySound(TEXT("127-bpm-hip-hop-beat-loop.wav"), NULL, SND_LOOP | SND_ASYNC);
+	
+	right = false;
+	left = false;
+	up = false;
+	down = false;
+	rotDir = false;
+	snakeEye = 0;
+	level = 1;
+	score = 0;
+	finishLevel = false;
+	levelWindow = false;
+	skinning = false;
+	jointsNum = 16;
+	spine.resize(jointsNum + 1);
+	chain.resize(jointsNum + 1);
+	parentsJoints.resize(jointsNum + 1);
+	scale = 1;
+	vT.resize(17);
+	vQuat.resize(17);
 	nameFileout.open(config);
 	if (!nameFileout.is_open())
 	{
@@ -39,28 +68,65 @@ void SandBox::Init(const std::string& config)
 	}
 	else
 	{
-		//double x = 0;
 		while (nameFileout >> item_name)
 		{
 			std::cout << "opening " << item_name << std::endl;
 			load_mesh_from_file(item_name);
-			//std::cout << data().V;
-			moveVector = 1;
+			Eigen::RowVector3d center(0, 0, -0.8);
+			parents.push_back(-1);
 			data().add_points(Eigen::RowVector3d(0, 0, 0), Eigen::RowVector3d(0, 0, 1));
 			data().show_overlay_depth = false;
 			data().point_size = 10;
 			data().line_width = 2;
 			reset();
 			data().tree.init(data().V, data().F);
-			//data().setBoundingBox();
-			//std::cout << data().V;
 			data().set_visible(false, 1);
+			data().SetCenterOfRotation(center.transpose());
+			V = data().V;
+
+		}
+		if (selected_data_index == 0) {
+			data().SetCenterOfRotation(GetCenter().transpose());
 		}
 		nameFileout.close();
 
 	}
-	spherePosition = data(0).Tout.translation().matrix();
-	//MyTranslate(Eigen::Vector3d(0,0,10), true);
+	MyTranslate(Eigen::Vector3d(0,0,-1), true);
+	data_list.at(1).MyTranslate(Eigen::Vector3d(0, 0, 0), true);
+	data_list.at(0).MyTranslate(Eigen::Vector3d(5, 0, 0), true);
+
+
+	double z = -0.8 * scale;
+	for (int i = 0; i < spine.size(); i++)
+	{
+		spine.at(i) = Eigen::Vector3d(0, 0, z);
+		z = z + 0.1 * scale;
+
+	}
+
+
+	//Calaulate the weights for each vertex
+	CalcWeights();
+	data_list.at(1).MyRotate(Eigen::Vector3d(0, 1, 0), 3.14 / 2);
+
+	//Create Joints
+	//the first joint that dont have a parent
+	Joints.emplace_back();
+	Joints.at(0).MyTranslate(spine.at(0), true);
+
+	parentsJoints[0] = -1;
+	//the 16 other joint that have parents
+	for (int i = 0; i < jointsNum; i++)
+	{
+		parentsJoints[i + 1] = i;
+		Joints.emplace_back();
+		Joints.at(i + 1).MyTranslate(spine.at(i + 1), true);
+
+
+	}
+
+
+	U = V;
 	data().set_colors(Eigen::RowVector3d(0.9, 0.1, 0.1));
 }
 
@@ -73,10 +139,89 @@ void SandBox::Animate()
 {
 	if (isActive)
 	{
+		if (skinning) {
+			if (left)
+			{
+				destination_position = Eigen::Vector3d(0, 0, -0.05);
+			}
+			if (right)
+			{
+				destination_position = Eigen::Vector3d(0, 0, 0.05);
+			}
+			if (up)
+			{
+				destination_position = Eigen::Vector3d(0, 0.05, 0);
+			}
+			if (down)
+			{
+				destination_position = Eigen::Vector3d(0, -0.05, 0);
+			}
+			//Move The Snake
+			CalcNextPosition();
+			igl::dqs(V, W, vQuat, vT, U);
+			data_list.at(1).set_vertices(U);
+			for (size_t i = 0; i < jointsNum + 1; i++)
+			{
+				spine[i] = vT[i];
+			}
 
+		}
 
+		//Collision - see if necessary
+		else {
+			if (left)
+				data().MyTranslate(Eigen::Vector3d(-0.03, 0, 0), true);
+			if (right)
+				data().MyTranslate(Eigen::Vector3d(0.03, 0, 0), true);
+			if (up)
+				data().MyTranslate(Eigen::Vector3d(0, 0.03, 0), true);
+			if (down)
+				data().MyTranslate(Eigen::Vector3d(0, -0.03, 0), true);
+			if (collision())
+			{
+				score += 10;
+				if (score == 50) {
+					finishLevel = true;
+					left = false;
+					right = false;
+					up = false;
+					down = false;
+					isActive = !isActive;
+				}
+				//move the ball
+				int x = (rand() % 230) - 110;
+				double dx = x / 10;
+				int y = (rand() % 100) - 50;
+				double dy = y / 10;
+				int z = (rand() % 210) - 110;
+				double dz = z / 10;
+				data_list[0].MyTranslate(Eigen::Vector3d(dx, dy, dz), true);
 
+			}
+		}
 	}
+}
+
+void SandBox::SetTexture(int index, std::string path)
+{
+	Eigen::MatrixXd& V_uv = data_list[index].V_uv;
+	Eigen::MatrixXd& V = data_list[index].V;
+	Eigen::MatrixXi& F = data_list[index].F;
+	Eigen::Vector3d lastRow(F.row(F.rows() / 10 - 1)(0), F.row(F.rows() / 10 - 1)(1), F.row(F.rows() / 10 - 1)(2));
+	F.row(F.rows() / 10 - 1)(0) = F.row(F.rows() / 10 - 1)(0);
+	F.row(F.rows() / 10 - 1)(1) = F.row(F.rows() / 10 - 1)(0);
+	F.row(F.rows() / 10 - 1)(2) = F.row(F.rows() / 10 - 1)(0);
+	Eigen::VectorXi bound;
+	igl::boundary_loop(F, bound);
+	Eigen::MatrixXd bound_uv;
+	igl::map_vertices_to_circle(V, bound, bound_uv);
+	igl::harmonic(V, F, bound, bound_uv, 1, V_uv);
+	V_uv *= 5;
+	data_list[index].image_texture(path);
+	F.row(F.rows() / 10 - 1)(0) = lastRow(0);
+	F.row(F.rows() / 10 - 1)(1) = lastRow(1);
+	F.row(F.rows() / 10 - 1)(2) = lastRow(2);
+
 }
 
 

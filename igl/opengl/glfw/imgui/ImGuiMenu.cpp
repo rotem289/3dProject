@@ -12,7 +12,7 @@
 #include "ImGuiHelpers.h"
 
 #include "ImGuiMenu.h"
-#include "../imgui.h"
+//#include "../imgui.h"
 #include "igl/opengl/glfw/imgui/imgui_impl_glfw.h"
 #include "igl/opengl/glfw/imgui/imgui_impl_opengl3.h"
 
@@ -170,13 +170,14 @@ IGL_INLINE void ImGuiMenu::draw_menu(igl::opengl::glfw::Viewer* viewer, std::vec
 
 IGL_INLINE void ImGuiMenu::draw_viewer_window(igl::opengl::glfw::Viewer* viewer, std::vector<igl::opengl::ViewerCore>& core)
 {
-  float menu_width = 180.f * menu_scaling();
-  ImGui::SetNextWindowPos(ImVec2(0.0f, 0.0f), ImGuiSetCond_FirstUseEver);
-  ImGui::SetNextWindowSize(ImVec2(0.0f, 0.0f), ImGuiSetCond_FirstUseEver);
-  ImGui::SetNextWindowSizeConstraints(ImVec2(menu_width, -1.0f), ImVec2(menu_width, -1.0f));
-  bool _viewer_menu_visible = true;
+  //float menu_width = 180.f * menu_scaling();
+  //ImGui::SetNextWindowPos(ImVec2(0.0f, 0.0f), ImGuiSetCond_FirstUseEver);
+  //ImGui::SetNextWindowSize(ImVec2(0.0f, 0.0f), ImGuiSetCond_FirstUseEver);
+  //ImGui::SetNextWindowSizeConstraints(ImVec2(menu_width, -1.0f), ImVec2(menu_width, -1.0f));
+  //bool _viewer_menu_visible = true;
 
-
+  bool open = false;
+  //ImGui::ShowDemoWindow(&open);
   
 }
 
@@ -187,13 +188,17 @@ IGL_INLINE void ImGuiMenu::draw_viewer_menu(igl::opengl::glfw::Viewer *viewer, s
     static bool no_titlebar = false;
     static bool no_scrollbar = false;
     static bool no_menu = true;
-    static bool no_move = false;
+    static bool no_move = true;
     static bool no_resize = false;
     static bool no_collapse = false;
     static bool no_close = false;
     static bool no_nav = false;
     static bool no_background = false;
     static bool no_bring_to_front = false;
+    static bool startMenu = true;
+    static int clickedStart = 0;
+    static int clickedExit = 0;
+    static int clicked = 0;
 
     ImGuiWindowFlags window_flags = 0;
     if (no_titlebar)        window_flags |= ImGuiWindowFlags_NoTitleBar;
@@ -206,108 +211,83 @@ IGL_INLINE void ImGuiMenu::draw_viewer_menu(igl::opengl::glfw::Viewer *viewer, s
     if (no_background)      window_flags |= ImGuiWindowFlags_NoBackground;
     if (no_bring_to_front)  window_flags |= ImGuiWindowFlags_NoBringToFrontOnFocus;
 
-    ImGui::Begin(
-        "Welcome", p_open,
-        window_flags
-    );
-    ImGui::SetWindowPos(ImVec2(core[0].viewport[0], core[0].viewport[1]), ImGuiCond_Always);
-    ImGui::SetWindowSize(ImVec2(core[0].viewport[2], core[0].viewport[3]), ImGuiCond_Always);
-    ImGui::End();
-    no_move = true;
-    no_resize = true;
-    ImGui::Begin(
-        "Welcome", p_open,
-        window_flags
-    );
-    if (ImGui::Button("Start##Game", ImVec2(300 / 2.f, 0)))
+    if (startMenu)
     {
-        viewer->startGame = true;
+        ImGui::SetNextWindowPos(ImVec2(350, 250), ImGuiCond_FirstUseEver);
+        ImGui::SetNextWindowSize(ImVec2(500, 300), ImGuiCond_FirstUseEver);
+        if (!ImGui::Begin("3D Snake", p_open, window_flags))
+        {
+            ImGui::End();
+            return;
+        }
+        ImGui::SetWindowFontScale(1.8);
+        ImGui::Text("     Welcome to the Game :)", IMGUI_VERSION);
+        ImGui::Text("Move Snake: ^,v,<,>", IMGUI_VERSION);
+        ImGui::Text("Toggle Skinning: S,s", IMGUI_VERSION);
+        ImGui::Text("Score 50 Points To Clear the Level", IMGUI_VERSION);
+        static int clickedStart = 0;
+        static int clickedExit = 0;
+        if (ImGui::Button("START"))
+            clickedStart++;
+        if (clickedStart & 1)
+        {
+            viewer->levelWindow = true;
+            startMenu = false;
+        }
+        ImGui::End();
+
     }
 
- /* // Mesh
-  if (ImGui::CollapsingHeader("Mesh", ImGuiTreeNodeFlags_DefaultOpen))
-  {
-    float w = ImGui::GetContentRegionAvailWidth();
-    float p = ImGui::GetStyle().FramePadding.x;
-    
-    ImGui::SameLine(0, p);
-    if (ImGui::Button("Save##Mesh", ImVec2((w-p)/2.f, 0)))
+    if (viewer->levelWindow)
     {
-      viewer->open_dialog_save_mesh();
-    }
-  }
+        ImGui::SetNextWindowPos(ImVec2(1, 1), ImGuiCond_FirstUseEver);
+        ImGui::SetNextWindowSize(ImVec2(200, 100), ImGuiCond_FirstUseEver);
+        if (!ImGui::Begin("  Level: "+viewer->level, p_open, window_flags))
+        {
+            ImGui::End();
+            return;
+        }
+        if (!viewer->finishLevel)
+        {
+            ImGui::SetWindowFontScale(2.3);
+            ImGui::Text("Score: %d", viewer->score);
+        }
+        else
+            viewer->levelWindow = false;
+        ImGui::End();
 
-  // Viewing options
-  if (ImGui::CollapsingHeader("Viewing Options", ImGuiTreeNodeFlags_DefaultOpen))
-  {
-    if (ImGui::Button("Center object", ImVec2(-1, 0)))
+    }
+    if (viewer->finishLevel)
     {
-      core[1].align_camera_center(viewer->data().V, viewer->data().F);
+        ImGui::SetNextWindowPos(ImVec2(350, 250), ImGuiCond_FirstUseEver);
+        ImGui::SetNextWindowSize(ImVec2(500, 300), ImGuiCond_FirstUseEver);
+        if (!ImGui::Begin("3D Snake", p_open, window_flags))
+        {
+
+            ImGui::End();
+            return;
+        }
+        ImGui::SetWindowFontScale(1.8);
+        ImGui::Text("Congragulations! you cleared level: %d",viewer->level);
+        ImGui::Text("Score 50 Points To Clear the Next Level", IMGUI_VERSION);
+        if (ImGui::Button("CONTINUE"))
+            clicked++;
+        if (clicked & 1)
+        {
+            viewer->levelWindow = true;
+            viewer->finishLevel = false;
+            viewer->level++;
+            viewer->score = 0;
+            clicked = 0;
+
+        }
+
+
+        ImGui::End();
     }
-    //if (ImGui::Button("Snap canonical view", ImVec2(-1, 0)))
-    //{
-    //  core[1].snap_to_canonical_quaternion();
-    //}
-
-    // Zoom
-    ImGui::PushItemWidth(80 * menu_scaling());
-    ImGui::DragFloat("Zoom", &(core[1].camera_zoom), 0.05f, 0.1f, 20.0f);
-
-    // Select rotation type
-    int rotation_type = static_cast<int>(core[1].rotation_type);
-    static Eigen::Quaternionf trackball_angle = Eigen::Quaternionf::Identity();
-    static bool orthographic = true;
-
-    // Orthographic view
-    ImGui::Checkbox("Orthographic view", &(core[1].orthographic));
-    ImGui::PopItemWidth();
-  }
-
-  // Helper for setting viewport specific mesh options
-  auto make_checkbox = [&](const char *label, unsigned int &option)
-  {
-    return ImGui::Checkbox(label,
-      [&]() { return core[1].is_set(option); },
-      [&](bool value) { return core[1].set(option, value); }
-    );
-  };*/
-     /* ImGui::ColorEdit4("Background", core[1].background_color.data(),
-      ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_PickerHueWheel);*/
-
-
-  // Draw options
- /* if (ImGui::CollapsingHeader("Draw Options", ImGuiTreeNodeFlags_DefaultOpen))
-  {
-    if (ImGui::Checkbox("Face-based", &(viewer->data().face_based)))
-    {
-      viewer->data().dirty = MeshGL::DIRTY_ALL;
-    }
-    make_checkbox("Show texture", viewer->data().show_texture);
-    if (ImGui::Checkbox("Invert normals", &(viewer->data().invert_normals)))
-    {
-      viewer->data().dirty |= igl::opengl::MeshGL::DIRTY_NORMAL;
-    }
-    make_checkbox("Show overlay", viewer->data().show_overlay);
-    make_checkbox("Show overlay depth", viewer->data().show_overlay_depth);
-    
-    ImGui::ColorEdit4("Line color", viewer->data().line_color.data(),
-        ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_PickerHueWheel);
-    ImGui::PushItemWidth(ImGui::GetWindowWidth() * 0.3f);
-    ImGui::DragFloat("Shininess", &(viewer->data().shininess), 0.05f, 0.0f, 100.0f);
-    ImGui::PopItemWidth();
-  }
-
-  // Overlays
-  if (ImGui::CollapsingHeader("Overlays", ImGuiTreeNodeFlags_DefaultOpen))
-  {
-    make_checkbox("Wireframe", viewer->data().show_lines);
-    make_checkbox("Fill", viewer->data().show_faces);
-
-  }*/
-  ImGui::End();
 }
 
-IGL_INLINE void ImGuiMenu::draw_labels_window(igl::opengl::glfw::Viewer* viewer,  const igl::opengl::ViewerCore* core)
+IGL_INLINE void ImGuiMenu::draw_labels_window(igl::opengl::glfw::Viewer* viewer, const igl::opengl::ViewerCore* core)
 {
   // Text labels
   ImGui::SetNextWindowPos(ImVec2(0,0), ImGuiSetCond_Always);
@@ -333,7 +313,7 @@ IGL_INLINE void ImGuiMenu::draw_labels_window(igl::opengl::glfw::Viewer* viewer,
   ImGui::PopStyleVar();
 }
 
-IGL_INLINE void ImGuiMenu::draw_labels(const igl::opengl::ViewerData &data,const igl::opengl::ViewerCore* core)
+IGL_INLINE void ImGuiMenu::draw_labels(const igl::opengl::ViewerData& data, const igl::opengl::ViewerCore* core)
 {
   if (data.show_vertid)
   {

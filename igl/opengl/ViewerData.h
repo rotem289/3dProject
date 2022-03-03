@@ -48,6 +48,8 @@ public:
   // Empty all fields
   IGL_INLINE void clear();
 
+  IGL_INLINE void Scale(const Eigen::Vector3d& scale);
+
   // Change the visualization mode, invalidating the cache if necessary
   IGL_INLINE void set_face_based(bool newvalue);
 

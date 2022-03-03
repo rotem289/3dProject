@@ -40,6 +40,19 @@ IGL_INLINE igl::opengl::ViewerData::ViewerData()
   clear();
 };
 
+IGL_INLINE void igl::opengl::ViewerData::Scale(const Eigen::Vector3d& scale)
+{
+    double zCord;
+    for (size_t i = 0; i < V.rows(); i++)
+    {
+        V(i, 0) = V(i, 0) * scale.x();
+        V(i, 1) = V(i, 1) * scale.y();
+        V(i, 2) = V(i, 2) * scale.z();
+    }
+    set_mesh(V, F);
+}
+
+
 IGL_INLINE void igl::opengl::ViewerData::set_face_based(bool newvalue)
 {
   if (face_based != newvalue)
@@ -386,8 +399,8 @@ IGL_INLINE void igl::opengl::ViewerData::clear()
   points                  = Eigen::MatrixXd (0,6);
   labels_positions        = Eigen::MatrixXd (0,3);
   labels_strings.clear();
-
   face_based = false;
+  tree.init(V, F);
 }
 
 IGL_INLINE void igl::opengl::ViewerData::compute_normals()

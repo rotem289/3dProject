@@ -1,6 +1,6 @@
-^C:\USERS\ROTEM\DOCUMENTS\CMAKE\ENGINEFORANIMATIONCOURSE\EXTERNAL\.CACHE\STB\CMAKEFILES\2AF6EADEF00636C0FD9A6DBF40BC33C9\GENERATE.STAMP.RULE
+^D:\ANIMATION3DPROJECTS\PROJECT\EXTERNAL\.CACHE\STB\CMAKEFILES\E34F549836CC9232946197694BEE365F\GENERATE.STAMP.RULE
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb -BC:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download.sln
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/Animation3DProjects/Project/external/.cache/stb -BD:/Animation3DProjects/Project/external/.cache/stb --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/Animation3DProjects/Project/external/.cache/stb/stb-download.sln
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

@@ -1,44 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\glad\CMakeFiles\45330c0189f673b17010d8988e17493e\glad-download-mkdir.rule">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\glad\CMakeFiles\bd7afb7144f327005590fcbf67fbb742\glad-download-mkdir.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\glad\CMakeFiles\45330c0189f673b17010d8988e17493e\glad-download-download.rule">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\glad\CMakeFiles\bd7afb7144f327005590fcbf67fbb742\glad-download-download.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\glad\CMakeFiles\45330c0189f673b17010d8988e17493e\glad-download-update.rule">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\glad\CMakeFiles\bd7afb7144f327005590fcbf67fbb742\glad-download-update.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\glad\CMakeFiles\45330c0189f673b17010d8988e17493e\glad-download-patch.rule">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\glad\CMakeFiles\bd7afb7144f327005590fcbf67fbb742\glad-download-patch.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\glad\CMakeFiles\45330c0189f673b17010d8988e17493e\glad-download-configure.rule">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\glad\CMakeFiles\bd7afb7144f327005590fcbf67fbb742\glad-download-configure.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\glad\CMakeFiles\45330c0189f673b17010d8988e17493e\glad-download-build.rule">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\glad\CMakeFiles\bd7afb7144f327005590fcbf67fbb742\glad-download-build.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\glad\CMakeFiles\45330c0189f673b17010d8988e17493e\glad-download-install.rule">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\glad\CMakeFiles\bd7afb7144f327005590fcbf67fbb742\glad-download-install.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\glad\CMakeFiles\45330c0189f673b17010d8988e17493e\glad-download-test.rule">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\glad\CMakeFiles\bd7afb7144f327005590fcbf67fbb742\glad-download-test.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\glad\CMakeFiles\461dd360072f9f3775d11b2cb78f32a3\glad-download-complete.rule">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\glad\CMakeFiles\e702831fb74395bc4c2bf189f2251175\glad-download-complete.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\glad\CMakeFiles\99c9ceeac4ce931df74ba977373b2227\glad-download.rule">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\glad\CMakeFiles\1650cf76d74a370b491fa95ef7296f2c\glad-download.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\glad\CMakeLists.txt" />
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\glad\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\glad\CMakeFiles\glad-download" />
+    <None Include="D:\Animation3DProjects\Project\external\.cache\glad\CMakeFiles\glad-download" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{642FA998-020F-3319-A888-C11CA92514B1}</UniqueIdentifier>
+      <UniqueIdentifier>{649BB121-1CF6-3D85-9F70-7D0144EE692A}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

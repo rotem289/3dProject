@@ -22,7 +22,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{79D43F91-F262-31B7-8EF5-E49FCF4E1F73}</ProjectGuid>
+    <ProjectGuid>{D6F91FE6-7BC7-3AC0-A07E-01254D1CB2B4}</ProjectGuid>
     <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
     <Platform>x64</Platform>
@@ -105,24 +105,24 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeFiles\6ee0ec07433d2f296dbd5e803edf0962\stb-download-mkdir.rule">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\stb\CMakeFiles\20551dc73a8e9dd85a588fe22c90e626\stb-download-mkdir.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Creating directories for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/cmake/../external/stb
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/cmake/../external/stb
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/build/stb-build
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/build/stb-build
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/tmp
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/tmp
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-mkdir
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -131,25 +131,25 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Creating directories for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/cmake/../external/stb
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/cmake/../external/stb
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/build/stb-build
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/build/stb-build
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/tmp
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/tmp
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-mkdir
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -158,25 +158,25 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Creating directories for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/cmake/../external/stb
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/cmake/../external/stb
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/build/stb-build
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/build/stb-build
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/tmp
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/tmp
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-mkdir
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -185,25 +185,25 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Creating directories for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/cmake/../external/stb
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/cmake/../external/stb
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/build/stb-build
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/build/stb-build
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/tmp
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/tmp
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-mkdir
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -212,21 +212,21 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeFiles\6ee0ec07433d2f296dbd5e803edf0962\stb-download-download.rule">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\stb\CMakeFiles\20551dc73a8e9dd85a588fe22c90e626\stb-download-download.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing download step (git clone) for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external
+cd D:\Animation3DProjects\Project\external
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitclone.cmake
+"D:\Program Files\CMake\bin\cmake.exe" -P D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-download
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -234,18 +234,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\stb-download-gitinfo.txt;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\stb-download-gitinfo.txt;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing download step (git clone) for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external
+cd D:\Animation3DProjects\Project\external
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitclone.cmake
+"D:\Program Files\CMake\bin\cmake.exe" -P D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-download
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -253,18 +253,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\stb-download-gitinfo.txt;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\stb-download-gitinfo.txt;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing download step (git clone) for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external
+cd D:\Animation3DProjects\Project\external
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitclone.cmake
+"D:\Program Files\CMake\bin\cmake.exe" -P D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-download
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -272,18 +272,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\stb-download-gitinfo.txt;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\stb-download-gitinfo.txt;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing download step (git clone) for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external
+cd D:\Animation3DProjects\Project\external
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitclone.cmake
+"D:\Program Files\CMake\bin\cmake.exe" -P D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-download
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -291,20 +291,20 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\stb-download-gitinfo.txt;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\stb-download-gitinfo.txt;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeFiles\6ee0ec07433d2f296dbd5e803edf0962\stb-download-update.rule">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\stb\CMakeFiles\20551dc73a8e9dd85a588fe22c90e626\stb-download-update.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing update step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\stb
+cd D:\Animation3DProjects\Project\external\stb
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitupdate.cmake
+"D:\Program Files\CMake\bin\cmake.exe" -P D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -312,17 +312,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing update step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\stb
+cd D:\Animation3DProjects\Project\external\stb
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitupdate.cmake
+"D:\Program Files\CMake\bin\cmake.exe" -P D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -330,17 +330,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing update step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\stb
+cd D:\Animation3DProjects\Project\external\stb
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitupdate.cmake
+"D:\Program Files\CMake\bin\cmake.exe" -P D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -348,17 +348,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing update step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\stb
+cd D:\Animation3DProjects\Project\external\stb
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitupdate.cmake
+"D:\Program Files\CMake\bin\cmake.exe" -P D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -366,19 +366,19 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeFiles\6ee0ec07433d2f296dbd5e803edf0962\stb-download-patch.rule">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\stb\CMakeFiles\20551dc73a8e9dd85a588fe22c90e626\stb-download-patch.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No patch step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-patch
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -386,15 +386,15 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No patch step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-patch
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -402,15 +402,15 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No patch step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-patch
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -418,15 +418,15 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No patch step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-patch
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -434,23 +434,23 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeFiles\6ee0ec07433d2f296dbd5e803edf0962\stb-download-configure.rule">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\stb\CMakeFiles\20551dc73a8e9dd85a588fe22c90e626\stb-download-configure.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No configure step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\build\stb-build
+cd D:\Animation3DProjects\Project\build\stb-build
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-configure
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -458,18 +458,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\tmp\stb-download-cfgcmd.txt;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\tmp\stb-download-cfgcmd.txt;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No configure step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\build\stb-build
+cd D:\Animation3DProjects\Project\build\stb-build
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-configure
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -477,18 +477,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\tmp\stb-download-cfgcmd.txt;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\tmp\stb-download-cfgcmd.txt;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No configure step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\build\stb-build
+cd D:\Animation3DProjects\Project\build\stb-build
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-configure
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -496,18 +496,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\tmp\stb-download-cfgcmd.txt;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\tmp\stb-download-cfgcmd.txt;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No configure step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\build\stb-build
+cd D:\Animation3DProjects\Project\build\stb-build
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-configure
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -515,22 +515,22 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\tmp\stb-download-cfgcmd.txt;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\tmp\stb-download-cfgcmd.txt;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeFiles\6ee0ec07433d2f296dbd5e803edf0962\stb-download-build.rule">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\stb\CMakeFiles\20551dc73a8e9dd85a588fe22c90e626\stb-download-build.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No build step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\build\stb-build
+cd D:\Animation3DProjects\Project\build\stb-build
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-build
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -538,18 +538,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No build step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\build\stb-build
+cd D:\Animation3DProjects\Project\build\stb-build
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-build
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -557,18 +557,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No build step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\build\stb-build
+cd D:\Animation3DProjects\Project\build\stb-build
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-build
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -576,18 +576,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No build step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\build\stb-build
+cd D:\Animation3DProjects\Project\build\stb-build
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-build
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -595,22 +595,22 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeFiles\6ee0ec07433d2f296dbd5e803edf0962\stb-download-install.rule">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\stb\CMakeFiles\20551dc73a8e9dd85a588fe22c90e626\stb-download-install.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No install step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\build\stb-build
+cd D:\Animation3DProjects\Project\build\stb-build
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-install
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -618,18 +618,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No install step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\build\stb-build
+cd D:\Animation3DProjects\Project\build\stb-build
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-install
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -637,18 +637,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No install step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\build\stb-build
+cd D:\Animation3DProjects\Project\build\stb-build
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-install
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -656,18 +656,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No install step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\build\stb-build
+cd D:\Animation3DProjects\Project\build\stb-build
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-install
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -675,22 +675,22 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeFiles\6ee0ec07433d2f296dbd5e803edf0962\stb-download-test.rule">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\stb\CMakeFiles\20551dc73a8e9dd85a588fe22c90e626\stb-download-test.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No test step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\build\stb-build
+cd D:\Animation3DProjects\Project\build\stb-build
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-test
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -698,18 +698,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-test</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-test</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No test step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\build\stb-build
+cd D:\Animation3DProjects\Project\build\stb-build
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-test
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -717,18 +717,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-test</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-test</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No test step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\build\stb-build
+cd D:\Animation3DProjects\Project\build\stb-build
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-test
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -736,18 +736,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-test</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-test</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No test step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\build\stb-build
+cd D:\Animation3DProjects\Project\build\stb-build
 if %errorlevel% neq 0 goto :cmEnd
-C:
+D:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+"D:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-test
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -755,20 +755,20 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-test</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-test</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeFiles\932dec1216e5f43a889cc1d4a2c7cc6f\stb-download-complete.rule">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\stb\CMakeFiles\c6f0f503d4801d9be461176dd955394d\stb-download-complete.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Completed 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/CMakeFiles/$(Configuration)
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/external/.cache/stb/CMakeFiles/$(Configuration)
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/CMakeFiles/$(Configuration)/stb-download-complete
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/CMakeFiles/$(Configuration)/stb-download-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-done
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -776,17 +776,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeFiles\$(Configuration)\stb-download-complete</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Animation3DProjects\Project\external\.cache\stb\CMakeFiles\$(Configuration)\stb-download-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Completed 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/CMakeFiles/$(Configuration)
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/external/.cache/stb/CMakeFiles/$(Configuration)
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/CMakeFiles/$(Configuration)/stb-download-complete
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/CMakeFiles/$(Configuration)/stb-download-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-done
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -794,17 +794,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeFiles\$(Configuration)\stb-download-complete</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Animation3DProjects\Project\external\.cache\stb\CMakeFiles\$(Configuration)\stb-download-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Completed 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/CMakeFiles/$(Configuration)
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/external/.cache/stb/CMakeFiles/$(Configuration)
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/CMakeFiles/$(Configuration)/stb-download-complete
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/CMakeFiles/$(Configuration)/stb-download-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-done
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -812,17 +812,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeFiles\$(Configuration)\stb-download-complete</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Animation3DProjects\Project\external\.cache\stb\CMakeFiles\$(Configuration)\stb-download-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Completed 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/CMakeFiles/$(Configuration)
+"D:\Program Files\CMake\bin\cmake.exe" -E make_directory D:/Animation3DProjects/Project/external/.cache/stb/CMakeFiles/$(Configuration)
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/CMakeFiles/$(Configuration)/stb-download-complete
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/CMakeFiles/$(Configuration)/stb-download-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-done
+"D:\Program Files\CMake\bin\cmake.exe" -E touch D:/Animation3DProjects/Project/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -830,14 +830,14 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeFiles\$(Configuration)\stb-download-complete</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Animation3DProjects\Project\external\.cache\stb\CMakeFiles\$(Configuration)\stb-download-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeFiles\2af6eadef00636c0fd9a6dbf40bc33c9\stb-download.rule">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\stb\CMakeFiles\e34f549836cc9232946197694bee365f\stb-download.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"></Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 :cmEnd
@@ -846,8 +846,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeFiles\$(Configuration)\stb-download-complete;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeFiles\stb-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Animation3DProjects\Project\external\.cache\stb\CMakeFiles\$(Configuration)\stb-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Animation3DProjects\Project\external\.cache\stb\CMakeFiles\stb-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'"></Message>
@@ -858,8 +858,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeFiles\$(Configuration)\stb-download-complete;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeFiles\stb-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Animation3DProjects\Project\external\.cache\stb\CMakeFiles\$(Configuration)\stb-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Animation3DProjects\Project\external\.cache\stb\CMakeFiles\stb-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'"></Message>
@@ -870,8 +870,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeFiles\$(Configuration)\stb-download-complete;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeFiles\stb-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Animation3DProjects\Project\external\.cache\stb\CMakeFiles\$(Configuration)\stb-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Animation3DProjects\Project\external\.cache\stb\CMakeFiles\stb-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'"></Message>
@@ -882,18 +882,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeFiles\$(Configuration)\stb-download-complete;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeFiles\stb-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Animation3DProjects\Project\external\.cache\stb\CMakeFiles\$(Configuration)\stb-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Animation3DProjects\Project\external\.cache\stb\CMakeFiles\stb-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeLists.txt">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\stb\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/Animation3DProjects/Project/external/.cache/stb/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb -BC:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb --check-stamp-file C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/CMakeFiles/generate.stamp
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/Animation3DProjects/Project/external/.cache/stb -BD:/Animation3DProjects/Project/external/.cache/stb --check-stamp-file D:/Animation3DProjects/Project/external/.cache/stb/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -901,12 +901,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.22\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\RepositoryInfo.txt.in;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeFiles\3.22.0-rc1\CMakeSystem.cmake;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\tmp\stb-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Animation3DProjects\Project\external\.cache\stb\CMakeFiles\3.21.3\CMakeSystem.cmake;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\tmp\stb-download-cfgcmd.txt.in;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;D:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Animation3DProjects\Project\external\.cache\stb\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/Animation3DProjects/Project/external/.cache/stb/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb -BC:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb --check-stamp-file C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/CMakeFiles/generate.stamp
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/Animation3DProjects/Project/external/.cache/stb -BD:/Animation3DProjects/Project/external/.cache/stb --check-stamp-file D:/Animation3DProjects/Project/external/.cache/stb/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -914,12 +914,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.22\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\RepositoryInfo.txt.in;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeFiles\3.22.0-rc1\CMakeSystem.cmake;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\tmp\stb-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Animation3DProjects\Project\external\.cache\stb\CMakeFiles\3.21.3\CMakeSystem.cmake;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\tmp\stb-download-cfgcmd.txt.in;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;D:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Animation3DProjects\Project\external\.cache\stb\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/Animation3DProjects/Project/external/.cache/stb/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb -BC:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb --check-stamp-file C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/CMakeFiles/generate.stamp
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/Animation3DProjects/Project/external/.cache/stb -BD:/Animation3DProjects/Project/external/.cache/stb --check-stamp-file D:/Animation3DProjects/Project/external/.cache/stb/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -927,12 +927,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.22\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\RepositoryInfo.txt.in;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeFiles\3.22.0-rc1\CMakeSystem.cmake;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\tmp\stb-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Animation3DProjects\Project\external\.cache\stb\CMakeFiles\3.21.3\CMakeSystem.cmake;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\tmp\stb-download-cfgcmd.txt.in;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;D:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Animation3DProjects\Project\external\.cache\stb\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/Animation3DProjects/Project/external/.cache/stb/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb -BC:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb --check-stamp-file C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/CMakeFiles/generate.stamp
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/Animation3DProjects/Project/external/.cache/stb -BD:/Animation3DProjects/Project/external/.cache/stb --check-stamp-file D:/Animation3DProjects/Project/external/.cache/stb/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -940,18 +940,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.22\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\RepositoryInfo.txt.in;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeFiles\3.22.0-rc1\CMakeSystem.cmake;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\stb-download-prefix\tmp\stb-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Animation3DProjects\Project\external\.cache\stb\CMakeFiles\3.21.3\CMakeSystem.cmake;D:\Animation3DProjects\Project\external\.cache\stb\stb-download-prefix\tmp\stb-download-cfgcmd.txt.in;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;D:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Animation3DProjects\Project\external\.cache\stb\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\CMakeFiles\stb-download">
+    <None Include="D:\Animation3DProjects\Project\external\.cache\stb\CMakeFiles\stb-download">
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\stb\ZERO_CHECK.vcxproj">
-      <Project>{97CE84FB-015B-331C-B336-13490EF649FB}</Project>
+    <ProjectReference Include="D:\Animation3DProjects\Project\external\.cache\stb\ZERO_CHECK.vcxproj">
+      <Project>{43C418E6-C54C-3F77-8848-AE4AB05D5B07}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

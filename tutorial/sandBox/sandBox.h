@@ -1,7 +1,6 @@
 #pragma once
 #include "igl/opengl/glfw/Viewer.h"
 #include "igl/aabb.h"
-#include "igl/opengl/ViewerData.h"
 
 class SandBox : public igl::opengl::glfw::Viewer
 {
@@ -15,6 +14,8 @@ public:
 	Eigen::Matrix4d calcError(int v);
 	std::vector<igl::AABB<Eigen::MatrixXd, 3>> trees; //boundingbox
 	Eigen::Vector3d spherePosition;
+	void SetTexture(int index, std::string texturePath);
+
 private:
 	// Prepare array-based edge data structures and priority queue
 	Eigen::VectorXi EMAP;

@@ -16,7 +16,7 @@ public:
 	Renderer();
 	~Renderer();
 	IGL_INLINE void draw(GLFWwindow* window);
-	IGL_INLINE void init(igl::opengl::glfw::Viewer* scn, int coresNum, igl::opengl::glfw::imgui::ImGuiMenu* _menu);
+	IGL_INLINE void init(igl::opengl::glfw::Viewer* viewer, int coresNum, igl::opengl::glfw::imgui::ImGuiMenu* _menu, Display* _display);
 	void IKswitch();
 	Eigen::Vector3d bottom();
 	Eigen::Vector3d spherePosition();
@@ -24,6 +24,7 @@ public:
 	void printRotation();
 	void printTip();
 	void printSphere();
+	void cameraSnakeEye();
 	IGL_INLINE void RotateYAxis(std::string direction);
 	IGL_INLINE void RotateXAxis(std::string direction);
 	IGL_INLINE void IKCyclic();
@@ -130,13 +131,14 @@ public:
 	}
 	void TranslateCamera(Eigen::Vector3f amt);
 	void RotateCamera(float amtX, float amtY);
-	//void RotateCamera();
 	void IKcheck();
-	//void fabrik();
 	inline bool IsPicked() { return scn->isPicked; }
+	void DrawMenu();
+
 	bool IKrun = false;
 	bool headView = false;
-
+	Display* display;
+	bool moveCamera;
 private:
 	// Stores all the viewing options
 	std::vector<igl::opengl::ViewerCore> core_list;

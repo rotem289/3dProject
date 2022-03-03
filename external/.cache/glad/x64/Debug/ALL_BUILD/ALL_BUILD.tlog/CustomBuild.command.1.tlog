@@ -1,6 +1,6 @@
-^C:\USERS\ROTEM\DOCUMENTS\CMAKE\ENGINEFORANIMATIONCOURSE\EXTERNAL\.CACHE\GLAD\CMAKELISTS.TXT
+^D:\ANIMATION3DPROJECTS\PROJECT\EXTERNAL\.CACHE\GLAD\CMAKELISTS.TXT
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/glad -BC:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/glad --check-stamp-file C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/glad/CMakeFiles/generate.stamp
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/Animation3DProjects/Project/external/.cache/glad -BD:/Animation3DProjects/Project/external/.cache/glad --check-stamp-file D:/Animation3DProjects/Project/external/.cache/glad/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

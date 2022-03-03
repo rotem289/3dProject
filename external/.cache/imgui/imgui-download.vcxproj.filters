@@ -1,44 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\imgui\CMakeFiles\7ad18b6c492b13f48651de091b0f7247\imgui-download-mkdir.rule">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\imgui\CMakeFiles\a8e180d4fba889e47e0909d65117896e\imgui-download-mkdir.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\imgui\CMakeFiles\7ad18b6c492b13f48651de091b0f7247\imgui-download-download.rule">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\imgui\CMakeFiles\a8e180d4fba889e47e0909d65117896e\imgui-download-download.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\imgui\CMakeFiles\7ad18b6c492b13f48651de091b0f7247\imgui-download-update.rule">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\imgui\CMakeFiles\a8e180d4fba889e47e0909d65117896e\imgui-download-update.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\imgui\CMakeFiles\7ad18b6c492b13f48651de091b0f7247\imgui-download-patch.rule">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\imgui\CMakeFiles\a8e180d4fba889e47e0909d65117896e\imgui-download-patch.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\imgui\CMakeFiles\7ad18b6c492b13f48651de091b0f7247\imgui-download-configure.rule">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\imgui\CMakeFiles\a8e180d4fba889e47e0909d65117896e\imgui-download-configure.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\imgui\CMakeFiles\7ad18b6c492b13f48651de091b0f7247\imgui-download-build.rule">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\imgui\CMakeFiles\a8e180d4fba889e47e0909d65117896e\imgui-download-build.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\imgui\CMakeFiles\7ad18b6c492b13f48651de091b0f7247\imgui-download-install.rule">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\imgui\CMakeFiles\a8e180d4fba889e47e0909d65117896e\imgui-download-install.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\imgui\CMakeFiles\7ad18b6c492b13f48651de091b0f7247\imgui-download-test.rule">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\imgui\CMakeFiles\a8e180d4fba889e47e0909d65117896e\imgui-download-test.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\imgui\CMakeFiles\4d11a4da05b454db6e621f45ffad892c\imgui-download-complete.rule">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\imgui\CMakeFiles\4a73fe2122aaa5e2fa394cf4c5fb71c8\imgui-download-complete.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\imgui\CMakeFiles\b0168309eef1d654b15484644c71203c\imgui-download.rule">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\imgui\CMakeFiles\3735e025d631be3c26e6fa814378924e\imgui-download.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\imgui\CMakeLists.txt" />
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\imgui\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\imgui\CMakeFiles\imgui-download" />
+    <None Include="D:\Animation3DProjects\Project\external\.cache\imgui\CMakeFiles\imgui-download" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{C6FCE0BB-75DF-31DA-898B-894AB9032CAD}</UniqueIdentifier>
+      <UniqueIdentifier>{AD4E0DD7-01F1-3FF3-9446-5662C17405E0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

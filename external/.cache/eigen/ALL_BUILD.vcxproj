@@ -22,7 +22,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{B1DB22CB-2318-3744-9A32-90E0CEFA2E16}</ProjectGuid>
+    <ProjectGuid>{40B659D8-F341-3AB4-9D1B-A7DC8677AC9E}</ProjectGuid>
     <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
     <Platform>x64</Platform>
@@ -105,11 +105,11 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\eigen\CMakeLists.txt">
+    <CustomBuild Include="D:\Animation3DProjects\Project\external\.cache\eigen\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/eigen/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/Animation3DProjects/Project/external/.cache/eigen/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/eigen -BC:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/eigen --check-stamp-file C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/eigen/CMakeFiles/generate.stamp
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/Animation3DProjects/Project/external/.cache/eigen -BD:/Animation3DProjects/Project/external/.cache/eigen --check-stamp-file D:/Animation3DProjects/Project/external/.cache/eigen/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -117,12 +117,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.22\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\RepositoryInfo.txt.in;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\eigen\CMakeFiles\3.22.0-rc1\CMakeSystem.cmake;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\eigen\eigen-download-prefix\tmp\eigen-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\eigen\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Animation3DProjects\Project\external\.cache\eigen\CMakeFiles\3.21.3\CMakeSystem.cmake;D:\Animation3DProjects\Project\external\.cache\eigen\eigen-download-prefix\tmp\eigen-download-cfgcmd.txt.in;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;D:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Animation3DProjects\Project\external\.cache\eigen\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/eigen/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/Animation3DProjects/Project/external/.cache/eigen/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/eigen -BC:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/eigen --check-stamp-file C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/eigen/CMakeFiles/generate.stamp
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/Animation3DProjects/Project/external/.cache/eigen -BD:/Animation3DProjects/Project/external/.cache/eigen --check-stamp-file D:/Animation3DProjects/Project/external/.cache/eigen/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -130,12 +130,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.22\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\RepositoryInfo.txt.in;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\eigen\CMakeFiles\3.22.0-rc1\CMakeSystem.cmake;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\eigen\eigen-download-prefix\tmp\eigen-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\eigen\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Animation3DProjects\Project\external\.cache\eigen\CMakeFiles\3.21.3\CMakeSystem.cmake;D:\Animation3DProjects\Project\external\.cache\eigen\eigen-download-prefix\tmp\eigen-download-cfgcmd.txt.in;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;D:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Animation3DProjects\Project\external\.cache\eigen\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/eigen/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/Animation3DProjects/Project/external/.cache/eigen/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/eigen -BC:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/eigen --check-stamp-file C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/eigen/CMakeFiles/generate.stamp
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/Animation3DProjects/Project/external/.cache/eigen -BD:/Animation3DProjects/Project/external/.cache/eigen --check-stamp-file D:/Animation3DProjects/Project/external/.cache/eigen/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -143,12 +143,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.22\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\RepositoryInfo.txt.in;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\eigen\CMakeFiles\3.22.0-rc1\CMakeSystem.cmake;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\eigen\eigen-download-prefix\tmp\eigen-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\eigen\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Animation3DProjects\Project\external\.cache\eigen\CMakeFiles\3.21.3\CMakeSystem.cmake;D:\Animation3DProjects\Project\external\.cache\eigen\eigen-download-prefix\tmp\eigen-download-cfgcmd.txt.in;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;D:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Animation3DProjects\Project\external\.cache\eigen\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/eigen/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/Animation3DProjects/Project/external/.cache/eigen/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/eigen -BC:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/eigen --check-stamp-file C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/eigen/CMakeFiles/generate.stamp
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/Animation3DProjects/Project/external/.cache/eigen -BD:/Animation3DProjects/Project/external/.cache/eigen --check-stamp-file D:/Animation3DProjects/Project/external/.cache/eigen/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -156,22 +156,22 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.22\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.22\Modules\RepositoryInfo.txt.in;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\eigen\CMakeFiles\3.22.0-rc1\CMakeSystem.cmake;C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\eigen\eigen-download-prefix\tmp\eigen-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\eigen\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Animation3DProjects\Project\external\.cache\eigen\CMakeFiles\3.21.3\CMakeSystem.cmake;D:\Animation3DProjects\Project\external\.cache\eigen\eigen-download-prefix\tmp\eigen-download-cfgcmd.txt.in;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;D:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;D:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Animation3DProjects\Project\external\.cache\eigen\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\eigen\ZERO_CHECK.vcxproj">
-      <Project>{4533B8AF-85A0-3BB8-A1CA-962368076563}</Project>
+    <ProjectReference Include="D:\Animation3DProjects\Project\external\.cache\eigen\ZERO_CHECK.vcxproj">
+      <Project>{B6295641-3168-30CB-A98F-9F4D5BF286D6}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\rotem\Documents\cmake\EngineForAnimationCourse\external\.cache\eigen\eigen-download.vcxproj">
-      <Project>{1435EC74-0C96-3A1D-B9DB-4D2CAAF6F8AA}</Project>
+    <ProjectReference Include="D:\Animation3DProjects\Project\external\.cache\eigen\eigen-download.vcxproj">
+      <Project>{4B4DA7F1-DE16-3BD3-97F6-04FFA35401B1}</Project>
       <Name>eigen-download</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

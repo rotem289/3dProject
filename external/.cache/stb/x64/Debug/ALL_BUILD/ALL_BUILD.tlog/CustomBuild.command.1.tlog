@@ -1,6 +1,6 @@
-^C:\USERS\ROTEM\DOCUMENTS\CMAKE\ENGINEFORANIMATIONCOURSE\EXTERNAL\.CACHE\STB\CMAKELISTS.TXT
+^D:\ANIMATION3DPROJECTS\PROJECT\EXTERNAL\.CACHE\STB\CMAKELISTS.TXT
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb -BC:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb --check-stamp-file C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/CMakeFiles/generate.stamp
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/Animation3DProjects/Project/external/.cache/stb -BD:/Animation3DProjects/Project/external/.cache/stb --check-stamp-file D:/Animation3DProjects/Project/external/.cache/stb/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

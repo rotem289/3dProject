@@ -1,3 +1,7 @@
+#include "MOVABLE.H"
+#include "MOVABLE.H"
+#include "MOVABLE.H"
+#include "MOVABLE.H"
 #include "Movable.h"
 #include <iostream>
 Movable::Movable()
@@ -42,6 +46,33 @@ void Movable::TranslateInSystem(Eigen::Matrix3d rot, Eigen::Vector3d amt)
 {
 	Tout.pretranslate(rot.transpose() * amt);
 }
+
+void Movable::TranslateInSystem(Eigen::Matrix4d Mat, Eigen::Vector3d amt, bool preRotation)
+{
+	Eigen::Vector3d v = Mat.transpose().block<3, 3>(0, 0) * amt; //transpose instead of inverse
+	MyTranslate(v, preRotation);
+}
+Eigen::Quaterniond Movable::GetRotationQ()
+{
+	return Eigen::Quaterniond(Tout.rotation());
+}
+void Movable::RotateInSystem(Eigen::Matrix4d Mat, Eigen::Vector3d rotAxis, double angle)
+{
+	Eigen::Vector3d v = Mat.transpose().block<3, 3>(0, 0) * rotAxis; //transpose instead of inverse
+	MyRotate(v.normalized(), angle);
+}
+
+Eigen::Vector3d Movable::GetCenter()
+{
+	Eigen::Vector3d amt;
+	Eigen::Matrix4d temp = MakeTransd();
+	amt(0) = temp(0, 3);
+	amt(1) = temp(1, 3);
+	amt(2) = temp(2, 3);
+	return amt;
+}
+
+
 //angle in radians
 void Movable::MyRotate(Eigen::Vector3d rotAxis, double angle)
 {
@@ -109,11 +140,11 @@ void Movable::MyRotate(Eigen::Vector3d rotAxis, float angle, bool cond)
 //}
 //
 //
-//void Movable::SetCenterOfRotation(Eigen::Vector3d amt)
-//{
-//	Tout.pretranslate(Tout.rotation().matrix().block<3, 3>(0, 0) * amt);
-//	Tin.translate(-amt);
-//}
+void Movable::SetCenterOfRotation(Eigen::Vector3d amt)
+{
+	Tout.pretranslate(Tout.rotation().matrix().block<3, 3>(0, 0) * amt);
+	Tin.translate(-amt);
+}
 //
 //Eigen::Vector3d Movable::GetCenterOfRotation()
 //{

@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb
+# Install script for directory: D:/Animation3DProjects/Project/external/.cache/stb
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/rotem/Documents/cmake/EngineForAnimationCourse/external/.cache/stb/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/Animation3DProjects/Project/external/.cache/stb/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

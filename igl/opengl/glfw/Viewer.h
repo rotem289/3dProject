@@ -56,6 +56,16 @@ namespace glfw
     void drawAxis(Eigen::Vector3d min, Eigen::Vector3d max);
     Eigen::Matrix4d makeParentsTransd(int indexOfLink);
 
+    //snake weights
+    Eigen::VectorXd createWi(Eigen::Vector4d data);
+    void CalcWeights();
+
+    //snake movement
+    void SetTip();
+    void CalcNextPosition();
+    void Fabrik();
+    Eigen::Matrix4d CalcParentsTransJ(int index);
+
     IGL_INLINE Eigen::Vector3d getTip(int index);
 
     IGL_INLINE Eigen::Vector3d getTip();
@@ -74,7 +84,12 @@ namespace glfw
     IGL_INLINE bool load_mesh_from_file(const std::string & mesh_file_name);
     Eigen::Matrix3d parentsRotationMatrices(int index);
     IGL_INLINE bool save_mesh_to_file(const std::string & mesh_file_name);
-   
+    void moveAlg();
+    void boundingBox(int);
+    void CreateLink(int index);
+    bool didCollide(Eigen::AlignedBox<double, 3>& A_box, int indexA, Eigen::AlignedBox<double, 3>& B_box, int indexB);
+    bool collision();
+    bool collision(igl::AABB<Eigen::MatrixXd, 3>& A, int indexA, igl::AABB<Eigen::MatrixXd, 3>& B, int indexB);
     // Scene IO
     IGL_INLINE bool load_scene();
     IGL_INLINE bool load_scene(std::string fname);
@@ -153,6 +168,43 @@ public:
     int next_data_id;
 	bool isPicked;
 	bool isActive;
+
+    std::vector<int> parentsJoints;
+    Eigen::Vector3d destination_position;
+    std::vector<Eigen::Vector3d>chain;
+    int scale;
+    int jointsNum;
+    std::vector<Eigen::Vector3d>spine;
+    std::vector<Movable> Joints;
+    //boolean variable for movment
+    bool up;
+    bool down;
+    bool right;
+    bool left;
+    bool rotDir;
+    bool skinning;
+    bool levelWindow;
+    bool finishLevel;
+    int score;
+    int level;
+
+    bool snakeEye;
+
+    typedef
+        std::vector<Eigen::Quaterniond, Eigen::aligned_allocator<Eigen::Quaterniond> >
+        RotList;
+    // W - weights matrix
+    // BE - Edges between joints
+    // C - joints positions
+    // P - parents
+    // M - weights per vertex per joint matrix
+    // U - new vertices position after skinning
+
+    Eigen::MatrixXd V, W, C, U, M;
+    Eigen::MatrixXi F, BE;
+    Eigen::VectorXi P;
+    RotList vQuat;
+    std::vector<Eigen::Vector3d> vT;
 
     
 
