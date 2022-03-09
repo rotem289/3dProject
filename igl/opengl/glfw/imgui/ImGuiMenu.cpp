@@ -241,7 +241,7 @@ IGL_INLINE void ImGuiMenu::draw_viewer_menu(igl::opengl::glfw::Viewer *viewer, s
     if (viewer->levelWindow)
     {
         ImGui::SetNextWindowPos(ImVec2(1, 1), ImGuiCond_FirstUseEver);
-        ImGui::SetNextWindowSize(ImVec2(200, 100), ImGuiCond_FirstUseEver);
+        ImGui::SetNextWindowSize(ImVec2(300, 800), ImGuiCond_FirstUseEver);
         if (!ImGui::Begin("  Level: "+viewer->level, p_open, window_flags))
         {
             ImGui::End();

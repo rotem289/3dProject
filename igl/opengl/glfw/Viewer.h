@@ -181,6 +181,8 @@ public:
     bool down;
     bool right;
     bool left;
+    bool front;
+    bool back;
     bool rotDir;
     bool skinning;
     bool levelWindow;

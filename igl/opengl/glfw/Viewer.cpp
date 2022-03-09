@@ -381,16 +381,16 @@ namespace glfw
       int numOfV = data_list.at(1).V.rows();
       Eigen::MatrixXd V = data_list.at(1).V;
       W.resize(numOfV, 17);
-      double zCord;
+      double zCoord;
       double lowBound, upBound;
       double weight1, weight2;
       Eigen::VectorXd weightVector;
       for (int i = 0; i < numOfV; i++)
       {
-          zCord = V.row(i)[2];
-          lowBound = (floor(zCord * 10)) / 10;
-          upBound = (ceil(zCord * 10)) / 10;
-          weight1 = abs(zCord - upBound) * 10;
+          zCoord = V.row(i)[2];
+          lowBound = (floor(zCoord * 10)) / 10;
+          upBound = (ceil(zCoord * 10)) / 10;
+          weight1 = abs(zCoord - upBound) * 10;
           weight2 = 1 - weight1;
           W.row(i) = createWi(Eigen::Vector4d(weight1, lowBound * 10 + 8, weight2, upBound * 10 + 8));
 

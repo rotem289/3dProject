@@ -42,7 +42,7 @@ IGL_INLINE igl::opengl::ViewerData::ViewerData()
 
 IGL_INLINE void igl::opengl::ViewerData::Scale(const Eigen::Vector3d& scale)
 {
-    double zCord;
+    double zCoord;
     for (size_t i = 0; i < V.rows(); i++)
     {
         V(i, 0) = V(i, 0) * scale.x();

@@ -452,18 +452,13 @@ void Renderer::RotateCamera(float amtX, float amtY)
 void Renderer::cameraSnakeEye()
 {
 	if (scn->snakeEye) {
-		Eigen::Vector3d tempEye = (scn->data_list[scn->data_list.size() - 1].MakeTransd() * Eigen::Vector4d(0, 0, 0, 1)).head(3); //Eigen::Vector3d(0, 0, 0);
-		core().camera_eye << tempEye[0], tempEye[1], tempEye[2];
-		Eigen::Vector3d tempUp = scn->data_list[scn->data_list.size() - 1].GetRotation() * Eigen::Vector3d(0, 1, 0);
-		core().camera_up << tempUp[0], tempUp[1], tempUp[2];
-		Eigen::Vector3d tempCenter = (scn->data_list[scn->data_list.size() - 1].MakeTransd() * Eigen::Vector4d(0, 0, 5, 1)).head(3);
-		core().camera_center << tempCenter[0], tempCenter[1], tempCenter[2];
-		//std::cout << core().camera_center << "\n";
-		//std::cout << tempCenter << "\n";
-	}
+			core().camera_translation = headLocation().cast<float>(); //head location
+			core().camera_eye << CameraEye(); //rotation
+			core().camera_up << CameraUp(); //how the snake is rotated around itself
+		}
 	else
 	{
-		core().camera_eye << 0, 0, 18;
+		core().camera_eye << 0, 0, 20;
 		core().camera_center << 0, 0, 0;
 		core().camera_up << 0, 1, 0;
 	}
@@ -677,7 +672,7 @@ IGL_INLINE void Renderer::resize(GLFWwindow* window,int w, int h)
 	}
 
 	Eigen::Vector3d Renderer::headLocation() {
-		return scn->data(0).Tout.translation().matrix().transpose() + scn->data(0).V.row(scn->data().V.rows() - 1);
+		return scn->data(1).Tout.translation().matrix().transpose()*(0,0,0.8);
 	}
 
 	Eigen::Vector3f Renderer::CameraUp() {

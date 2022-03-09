@@ -47,6 +47,8 @@ void SandBox::Init(const std::string& config)
 	left = false;
 	up = false;
 	down = false;
+	front = false;
+	back = false;
 	rotDir = false;
 	snakeEye = 0;
 	level = 1;
@@ -142,19 +144,27 @@ void SandBox::Animate()
 		if (skinning) {
 			if (left)
 			{
-				destination_position = Eigen::Vector3d(0, 0, -0.05);
+				destination_position = Eigen::Vector3d(-0.07, 0, 0);
 			}
 			if (right)
 			{
-				destination_position = Eigen::Vector3d(0, 0, 0.05);
+				destination_position = Eigen::Vector3d(0.07, 0, 0);
 			}
 			if (up)
 			{
-				destination_position = Eigen::Vector3d(0, 0.05, 0);
+				destination_position = Eigen::Vector3d(0, 0.07, 0);
 			}
 			if (down)
 			{
-				destination_position = Eigen::Vector3d(0, -0.05, 0);
+				destination_position = Eigen::Vector3d(0, -0.07, 0);
+			}
+			if (front)
+			{
+				destination_position = Eigen::Vector3d(0, 0, 0.07);
+			}
+			if (back)
+			{
+				destination_position = Eigen::Vector3d(0, 0, -0.07);
 			}
 			//Move The Snake
 			CalcNextPosition();
@@ -167,16 +177,20 @@ void SandBox::Animate()
 
 		}
 
-		//Collision - see if necessary
 		else {
 			if (left)
-				data().MyTranslate(Eigen::Vector3d(-0.03, 0, 0), true);
+				data().MyTranslate(Eigen::Vector3d(-0.07, 0, 0), true);
 			if (right)
-				data().MyTranslate(Eigen::Vector3d(0.03, 0, 0), true);
+				data().MyTranslate(Eigen::Vector3d(0.07, 0, 0), true);
 			if (up)
-				data().MyTranslate(Eigen::Vector3d(0, 0.03, 0), true);
+				data().MyTranslate(Eigen::Vector3d(0, 0.07, 0), true);
 			if (down)
-				data().MyTranslate(Eigen::Vector3d(0, -0.03, 0), true);
+				data().MyTranslate(Eigen::Vector3d(0, -0.07, 0), true);
+			if (front)
+				data().MyTranslate(Eigen::Vector3d(0, 0, 0.07), true);
+			if (back)
+				data().MyTranslate(Eigen::Vector3d(0, 0, -0.07), true);
+
 			if (collision())
 			{
 				score += 10;
@@ -195,7 +209,7 @@ void SandBox::Animate()
 				double dy = y / 10;
 				int z = (rand() % 210) - 110;
 				double dz = z / 10;
-				data_list[0].MyTranslate(Eigen::Vector3d(dx, dy, dz), true);
+				data_list[0].MyTranslate(Eigen::Vector3d(dx, dy, 0), true);
 
 			}
 		}

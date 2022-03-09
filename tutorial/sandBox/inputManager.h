@@ -181,11 +181,13 @@ static void glfw_key_callback(GLFWwindow* window, int key, int scancode, int act
 			scn->skinning = !scn->skinning;
 			break;
 		case GLFW_KEY_UP:
-			if (scn->down || scn->left || scn->right)
+			if (scn->down || scn->left || scn->right|| scn->front || scn->back)
 			{
 				scn->down = false;
 				scn->left = false;
 				scn->right = false;
+				scn->front = false;
+				scn->back = false;
 				scn->isActive = !scn->isActive;
 			}
 			if (!scn->up)
@@ -196,11 +198,13 @@ static void glfw_key_callback(GLFWwindow* window, int key, int scancode, int act
 			scn->isActive = !scn->isActive;			
 			break;
 		case GLFW_KEY_DOWN:
-			if (scn->up || scn->left || scn->right)
+			if (scn->up || scn->left || scn->right || scn->front || scn->back)
 			{
 				scn->up = false;
 				scn->left = false;
 				scn->right = false;
+				scn->front = false;
+				scn->back = false;
 				scn->isActive = !scn->isActive;
 			}
 			if (!scn->down)
@@ -211,11 +215,13 @@ static void glfw_key_callback(GLFWwindow* window, int key, int scancode, int act
 			scn->isActive = !scn->isActive;
 			break;
 		case GLFW_KEY_LEFT:
-			if (scn->up || scn->down || scn->right)
+			if (scn->up || scn->down || scn->right || scn->front || scn->back)
 			{
 				scn->up = false;
 				scn->down = false;
 				scn->right = false;
+				scn->front = false;
+				scn->back = false;
 				scn->isActive = !scn->isActive;
 			}
 			if (!scn->left)
@@ -226,17 +232,53 @@ static void glfw_key_callback(GLFWwindow* window, int key, int scancode, int act
 			scn->isActive = !scn->isActive;
 			break;
 		case GLFW_KEY_RIGHT:
-			if (scn->up || scn->down || scn->left)
+			if (scn->up || scn->down || scn->left || scn->front || scn->back)
 			{
 				scn->up = false;
 				scn->down = false;
 				scn->left = false;
+				scn->front = false;
+				scn->back = false;
 				scn->isActive = !scn->isActive;
 			}
 			if (!scn->right)
 				scn->right = true;
 			else
 				scn->right = false;
+			scn->rotDir = true;
+			scn->isActive = !scn->isActive;
+			break;
+		case '1':
+			if (scn->up || scn->down || scn->left || scn->right || scn->back)
+			{
+				scn->up = false;
+				scn->down = false;
+				scn->left = false;
+				scn->right = false;
+				scn->back = false;
+				scn->isActive = !scn->isActive;
+			}
+			if (!scn->front)
+				scn->front = true;
+			else
+				scn->front = false;
+			scn->rotDir = true;
+			scn->isActive = !scn->isActive;
+			break;
+		case '2':
+			if (scn->up || scn->down || scn->left || scn->right || scn->front)
+			{
+				scn->up = false;
+				scn->down = false;
+				scn->left = false;
+				scn->right = false;
+				scn->front = false;
+				scn->isActive = !scn->isActive;
+			}
+			if (!scn->back)
+				scn->back = true;
+			else
+				scn->back = false;
 			scn->rotDir = true;
 			scn->isActive = !scn->isActive;
 			break;

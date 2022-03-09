@@ -263,16 +263,6 @@ bool Display::launch_rendering(bool loop)
 		}
 		renderer->DrawMenu();
 		glfwSwapBuffers(window);
-		if (renderer->headView) { //snake view
-			renderer->core().camera_translation = renderer->headLocation().cast<float>(); //head location
-			renderer->core().camera_eye << renderer->CameraEye(); //rotation
-			renderer->core().camera_up << renderer->CameraUp(); //how the snake is rotated around itself
-		}
-		else { //top view
-			renderer->core().camera_translation << 0, 25, 0;
-			renderer->core().camera_eye << 0, -1, 0;
-			renderer->core().camera_up << 0, 0, 1;
-		}
 
 		if (renderer->core().is_animating || frame_counter++ < num_extra_frames)
 		{//motion
